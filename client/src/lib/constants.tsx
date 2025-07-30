@@ -41,7 +41,7 @@ export const COMPANY_INFO = {
   phone: "+2347035539944",
   address: "Plot 123, Victoria Island, Lagos, Nigeria",
   socialMedia: {
-    instagram: "https://instagram.com/safeholdproperties",
+    instagram: "https://www.instagram.com/safehold_properties",
     whatsapp: `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}`,
     linkedin: "#",
     facebook: "#"
