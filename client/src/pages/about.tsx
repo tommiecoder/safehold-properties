@@ -59,7 +59,13 @@ export default function About() {
               <img
                 src="https://i.postimg.cc/Z9dwZchc/WhatsApp-Image-2025-01-26-at-11-15-20-PM.jpg"
                 alt="Founder profile"
-                className="rounded-2xl shadow-lg w-full"
+                className="rounded-2xl shadow-lg w-full object-cover object-center"
+                style={{
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
+                  maxHeight: '600px'
+                }}
+                loading="lazy"
               />
             </div>
           </div>
