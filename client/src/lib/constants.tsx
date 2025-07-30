@@ -32,7 +32,7 @@ export const BATHROOM_OPTIONS = [
   { label: "5+ Bathrooms", value: 5 }
 ] as const;
 
-export const WHATSAPP_NUMBER = "+2348123456789";
+export const WHATSAPP_NUMBER = "+2347035539944";
 export const WHATSAPP_MESSAGE = "Hi, I'm interested in learning more about real estate investment opportunities";
 
 export const COMPANY_INFO = {
