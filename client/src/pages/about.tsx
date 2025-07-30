@@ -47,7 +47,7 @@ export default function About() {
                 premium properties that deliver exceptional returns. Our commitment to transparency, integrity, and 
                 client success has made us the trusted partner for real estate investment in Nigeria.
               </p>
-              
+
               <Button asChild size="lg" className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold">
                 <Link href="/contact">
                   Schedule a Consultation
@@ -57,9 +57,15 @@ export default function About() {
 
             <div className="space-y-6">
               <img
-                src="https://i.postimg.cc/Z9dwZchc/WhatsApp-Image-2025-01-26-at-11-15-20-PM.jpg"
+                src="/images/founder-profile.jpg"
                 alt="Founder profile"
-                className="rounded-2xl shadow-lg w-full"
+                className="rounded-2xl shadow-lg w-full object-cover object-center"
+                style={{
+                  imageRendering: 'crisp-edges',
+                  filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
+                  maxHeight: '600px'
+                }}
+                loading="lazy"
               />
             </div>
           </div>
@@ -101,7 +107,7 @@ export default function About() {
             <h2 className="font-dm-serif text-4xl text-white mb-4">Our Track Record</h2>
             <p className="text-xl text-white/90">Numbers that speak to our success and client satisfaction</p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
