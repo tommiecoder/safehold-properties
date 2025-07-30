@@ -57,7 +57,7 @@ export default function About() {
 
             <div className="space-y-6">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
+                src="https://i.postimg.cc/Z03VXjLK/IMG-9364-1753840449424.jpg"
                 alt="Founder profile"
                 className="rounded-2xl shadow-lg w-full"
               />
