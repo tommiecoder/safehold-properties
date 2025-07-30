@@ -45,7 +45,7 @@ export default function SearchFilters({ onSearch, className }: SearchFiltersProp
   };
 
   return (
-    <Card className={className}>
+    <Card className={`shadow-luxury ${className}`}>
       <CardContent className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <div className="space-y-2">
@@ -158,11 +158,11 @@ export default function SearchFilters({ onSearch, className }: SearchFiltersProp
         </div>
 
         <div className="flex justify-center space-x-4">
-          <Button onClick={handleSearch} className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold text-lg px-12 py-4">
+          <Button onClick={handleSearch} className="btn-premium text-white font-semibold text-lg px-12 py-4 rounded-xl hover-lift">
             <Search className="w-4 h-4 mr-2" />
             Search Properties
           </Button>
-          <Button onClick={clearFilters} variant="outline" className="px-8 py-4">
+          <Button onClick={clearFilters} variant="outline" className="px-8 py-4 rounded-xl border-slate-blue text-slate-blue hover:bg-slate-blue hover:text-white transition-all duration-300">
             Clear Filters
           </Button>
         </div>

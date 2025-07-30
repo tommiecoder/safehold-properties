@@ -28,33 +28,33 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center parallax">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
           }}
         >
-          <div className="absolute inset-0 bg-rich-black/40"></div>
+          <div className="absolute inset-0 gradient-overlay"></div>
         </div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="font-dm-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                Your Gateway to <span className="text-primary-orange">Premium</span> Nigerian Real Estate
+            <div className="animate-fade-in">
+              <h1 className="font-dm-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-slide-up">
+                Your Gateway to <span className="text-gradient">Premium</span> Nigerian Real Estate
               </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
                 Expert investment guidance for discerning buyers in Lagos, Abuja, Abeokuta, Asaba, and South Africa. 
                 Build generational wealth through strategic property investments.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold text-lg">
+              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
+                <Button asChild size="lg" className="btn-premium text-white font-semibold text-lg hover-lift rounded-xl">
                   <Link href="/properties">
                     View Properties <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="bg-white/10 border-white text-white hover:bg-white hover:text-rich-black">
+                <Button asChild variant="outline" size="lg" className="glass-dark border-white/30 text-white hover:bg-white/10 transition-all duration-300 rounded-xl backdrop-blur-sm">
                   <Link href="/contact">
                     Schedule Consultation
                   </Link>
@@ -62,8 +62,8 @@ export default function Home() {
               </div>
             </div>
             
-            <div>
-              <LeadCaptureForm className="max-w-lg ml-auto" />
+            <div className="animate-fade-in" style={{animationDelay: '0.6s'}}>
+              <LeadCaptureForm className="max-w-lg ml-auto glass-card" />
             </div>
           </div>
         </div>
@@ -84,19 +84,21 @@ export default function Home() {
           {propertiesLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="h-96 bg-gray-200 animate-pulse rounded-2xl"></div>
+                <div key={i} className="h-96 bg-gray-200 animate-pulse rounded-2xl shadow-luxury"></div>
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProperties?.map((property) => (
-                <PropertyCard key={property.id} property={property} />
+              {featuredProperties?.map((property, index) => (
+                <div key={property.id} className="animate-fade-in hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
+                  <PropertyCard property={property} />
+                </div>
               ))}
             </div>
           )}
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold text-lg">
+            <Button asChild size="lg" className="btn-premium text-white font-semibold text-lg hover-lift rounded-xl">
               <Link href="/properties">
                 View All Properties <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -159,9 +161,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1: Dream Home */}
-            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+            <Card className="bg-white hover-lift shadow-luxury group animate-fade-in" style={{animationDelay: '0.1s'}}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 animate-glow">
                   <HomeIcon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
@@ -170,7 +172,7 @@ export default function Home() {
                 <p className="text-slate-blue leading-relaxed mb-6">
                   Find the perfect residential property that matches your lifestyle and budget. From luxury apartments to family homes across Nigeria and South Africa.
                 </p>
-                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg">
                   <Link href="/properties?propertyType=residential">
                     Browse Homes
                   </Link>
@@ -179,9 +181,9 @@ export default function Home() {
             </Card>
 
             {/* Service 2: Commercial Properties */}
-            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+            <Card className="bg-white hover-lift shadow-luxury group animate-fade-in" style={{animationDelay: '0.2s'}}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 animate-glow">
                   <Building className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
@@ -190,7 +192,7 @@ export default function Home() {
                 <p className="text-slate-blue leading-relaxed mb-6">
                   Build wealth through strategic commercial real estate investments. Office buildings, retail spaces, and mixed-use developments in high-growth areas.
                 </p>
-                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg">
                   <Link href="/properties?propertyType=commercial">
                     View Commercial
                   </Link>
@@ -199,9 +201,9 @@ export default function Home() {
             </Card>
 
             {/* Service 3: Expert Guidance */}
-            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+            <Card className="bg-white hover-lift shadow-luxury group animate-fade-in" style={{animationDelay: '0.3s'}}>
               <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 animate-glow">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
@@ -210,7 +212,7 @@ export default function Home() {
                 <p className="text-slate-blue leading-relaxed mb-6">
                   Receive personalized consultation from our experienced team. Market analysis, investment strategies, and ongoing support for your portfolio.
                 </p>
-                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg">
                   <Link href="/contact">
                     Schedule Consultation
                   </Link>

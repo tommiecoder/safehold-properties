@@ -174,7 +174,7 @@ export default function LeadCaptureForm({
             <Button
               type="submit"
               disabled={createInquiryMutation.isPending}
-              className="w-full bg-orange-gradient text-white py-4 rounded-lg hover:shadow-xl transition-all duration-300 font-semibold text-lg"
+              className="w-full btn-premium text-white py-4 rounded-xl font-semibold text-lg hover-lift"
             >
               {createInquiryMutation.isPending ? "Submitting..." : buttonText}
             </Button>
