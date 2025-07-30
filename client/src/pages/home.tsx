@@ -7,7 +7,7 @@ import PropertyCard from "@/components/property-card";
 import SearchFilters from "@/components/search-filters";
 import LeadCaptureForm from "@/components/lead-capture-form";
 import type { Property, Testimonial } from "@shared/schema";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Home as HomeIcon, Building, Users } from "lucide-react";
 
 export default function Home() {
   const { data: featuredProperties, isLoading: propertiesLoading } = useQuery<Property[]>({
@@ -145,8 +145,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Key Services */}
       <section className="py-20 bg-off-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
+              Our Key Services
+            </h2>
+            <p className="text-xl text-slate-blue">
+              Comprehensive real estate solutions tailored to your investment goals
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Service 1: Dream Home */}
+            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <HomeIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
+                  Discover Your Dream Home
+                </h3>
+                <p className="text-slate-blue leading-relaxed mb-6">
+                  Find the perfect residential property that matches your lifestyle and budget. From luxury apartments to family homes across Nigeria and South Africa.
+                </p>
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                  <Link href="/properties?propertyType=residential">
+                    Browse Homes
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Service 2: Commercial Properties */}
+            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Building className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
+                  Invest in Prime Commercial Properties
+                </h3>
+                <p className="text-slate-blue leading-relaxed mb-6">
+                  Build wealth through strategic commercial real estate investments. Office buildings, retail spaces, and mixed-use developments in high-growth areas.
+                </p>
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                  <Link href="/properties?propertyType=commercial">
+                    View Commercial
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Service 3: Expert Guidance */}
+            <Card className="bg-white hover:shadow-xl transition-all duration-300 group">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 bg-orange-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-dm-serif text-2xl text-rich-black mb-4">
+                  Get Expert Investment Guidance
+                </h3>
+                <p className="text-slate-blue leading-relaxed mb-6">
+                  Receive personalized consultation from our experienced team. Market analysis, investment strategies, and ongoing support for your portfolio.
+                </p>
+                <Button asChild variant="outline" className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white">
+                  <Link href="/contact">
+                    Schedule Consultation
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
