@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(210, 11%, 7%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 11%, 7%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 11%, 7%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(39, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(210, 11%, 7%);
+  --radius: 0.5rem;
+  
+  /* Custom Safehold Properties colors */
+  --primary-orange: hsl(39, 100%, 50%);
+  --off-white: hsl(0, 0%, 98%);
+  --rich-black: hsl(210, 11%, 7%);
+  --silver-gray: hsl(0, 0%, 85%);
+  --slate-blue: hsl(215, 25%, 32%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(39, 100%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-lato antialiased bg-off-white text-rich-black;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'DM Serif Display', serif;
+  }
+}
+
+@layer utilities {
+  .font-dm-serif {
+    font-family: 'DM Serif Display', serif;
+  }
+  
+  .font-lato {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .bg-off-white {
+    background-color: var(--off-white);
+  }
+  
+  .text-rich-black {
+    color: var(--rich-black);
+  }
+  
+  .text-primary-orange {
+    color: var(--primary-orange);
+  }
+  
+  .bg-primary-orange {
+    background-color: var(--primary-orange);
+  }
+  
+  .text-slate-blue {
+    color: var(--slate-blue);
+  }
+  
+  .bg-slate-blue {
+    background-color: var(--slate-blue);
+  }
+  
+  .border-silver-gray {
+    border-color: var(--silver-gray);
+  }
+  
+  .bg-orange-gradient {
+    background: linear-gradient(135deg, var(--primary-orange) 0%, hsl(33, 100%, 50%) 100%);
+  }
+}
