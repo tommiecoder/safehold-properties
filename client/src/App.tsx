@@ -9,7 +9,6 @@ import WhatsAppWidget from "@/components/whatsapp-widget";
 import Home from "@/pages/home";
 import Properties from "@/pages/properties";
 import About from "@/pages/about";
-import Team from "@/pages/team";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
@@ -19,7 +18,6 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/properties" component={Properties} />
       <Route path="/about" component={About} />
-      <Route path="/team" component={Team} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>

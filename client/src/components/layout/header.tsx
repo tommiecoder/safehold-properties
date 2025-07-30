@@ -13,7 +13,6 @@ export default function Header() {
     { name: "Home", href: "/" },
     { name: "Properties", href: "/properties" },
     { name: "About", href: "/about" },
-    { name: "Team", href: "/team" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -31,20 +30,22 @@ export default function Header() {
               Safehold <span className="text-primary-orange">Properties</span>
             </div>
           </Link>
-          
+
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition-colors ${
-                  isActiveLink(item.href)
-                    ? "text-primary-orange font-medium"
-                    : "text-rich-black hover:text-primary-orange"
-                }`}
-              >
-                {item.name}
-              </Link>
+              item.name !== "Team" && (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`transition-colors ${
+                    isActiveLink(item.href)
+                      ? "text-primary-orange font-medium"
+                      : "text-rich-black hover:text-primary-orange"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -83,18 +84,20 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col space-y-4 mt-8">
                   {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className={`text-lg transition-colors ${
-                        isActiveLink(item.href)
-                          ? "text-primary-orange font-medium"
-                          : "text-rich-black hover:text-primary-orange"
-                      }`}
-                    >
-                      {item.name}
-                    </Link>
+                    item.name !== "Team" && (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`text-lg transition-colors ${
+                          isActiveLink(item.href)
+                            ? "text-primary-orange font-medium"
+                            : "text-rich-black hover:text-primary-orange"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )
                   ))}
                   <div className="pt-4 border-t border-silver-gray">
                     <Button className="w-full bg-orange-gradient text-white">
