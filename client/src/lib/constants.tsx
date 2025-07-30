@@ -38,7 +38,7 @@ export const WHATSAPP_MESSAGE = "Hi, I'm interested in learning more about real 
 export const COMPANY_INFO = {
   name: "Safehold Properties",
   email: "info@safeholdproperties.com",
-  phone: "+234 812 345 6789",
+  phone: "+2347035539944",
   address: "Plot 123, Victoria Island, Lagos, Nigeria",
   socialMedia: {
     instagram: "https://instagram.com/safeholdproperties",
