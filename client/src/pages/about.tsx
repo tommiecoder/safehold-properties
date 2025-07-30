@@ -57,7 +57,7 @@ export default function About() {
 
             <div className="space-y-6">
               <img
-                src="https://i.postimg.cc/Z03VXjLK/IMG-9364-1753840449424.jpg"
+                src="https://i.postimg.cc/Z9dwZchc/WhatsApp-Image-2025-01-26-at-11-15-20-PM.jpg"
                 alt="Founder profile"
                 className="rounded-2xl shadow-lg w-full"
               />
