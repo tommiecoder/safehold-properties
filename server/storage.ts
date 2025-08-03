@@ -54,125 +54,67 @@ export class MemStorage implements IStorage {
   }
 
   private seedData() {
-    // Seed properties
+    // Seed properties with real Ajah apartment
     const sampleProperties: InsertProperty[] = [
       {
-        title: "Luxury Waterfront Villa",
-        description: "Stunning 5-bedroom waterfront villa with private pool and generator. Perfect for high-net-worth individuals seeking premium living in Victoria Island.",
-        price: 185000000,
-        location: "Victoria Island, Lagos",
+        title: "Modern 2 Bedroom Apartment",
+        description: "Brand new 2-bedroom apartment in Ajah featuring modern finishes, spacious living area, fully equipped kitchen, and premium amenities. Located in a secure estate with 24/7 power supply and excellent facilities.",
+        price: 80000000,
+        location: "Ajah, Lagos",
         propertyType: "residential",
-        bedrooms: 5,
-        bathrooms: 6,
-        area: 450,
-        amenities: ["Swimming Pool", "Generator", "Security", "Parking", "Garden"],
-        images: ["https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"],
+        bedrooms: 2,
+        bathrooms: 2,
+        area: 120,
+        amenities: ["24hrs Light", "24hrs Security", "Estate Pool", "Fully Equipped Gym", "Spacious Living Area", "Modern Kitchen", "Marble Flooring"],
+        images: [
+          "/attached_assets/IMG-20250803-WA0132_1754260369807.jpg",
+          "/attached_assets/IMG-20250803-WA0133_1754260369842.jpg",
+          "/attached_assets/IMG-20250803-WA0134_1754260369868.jpg",
+          "/attached_assets/IMG-20250803-WA0135_1754260369899.jpg",
+          "/attached_assets/IMG-20250803-WA0136_1754260369942.jpg",
+          "/attached_assets/IMG-20250803-WA0137_1754260369981.jpg",
+          "/attached_assets/IMG-20250803-WA0138_1754260370012.jpg",
+          "/attached_assets/IMG-20250803-WA0139_1754260370036.jpg",
+          "/attached_assets/IMG-20250803-WA0140_1754260370059.jpg",
+          "/attached_assets/IMG-20250803-WA0141_1754260370078.jpg",
+          "/attached_assets/IMG-20250803-WA0142_1754260370097.jpg"
+        ],
         featured: true,
-        available: true,
-      },
-      {
-        title: "Premium Office Complex",
-        description: "Modern 12-floor commercial building in Abuja CBD with 24/7 security and ample parking. Ideal for corporate headquarters and investment.",
-        price: 450000000,
-        location: "Abuja CBD",
-        propertyType: "commercial",
-        bedrooms: 0,
-        bathrooms: 24,
-        area: 2500,
-        amenities: ["24/7 Security", "Parking", "Elevator", "Generator", "Air Conditioning"],
-        images: ["https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"],
-        featured: true,
-        available: true,
-      },
-      {
-        title: "Gated Estate Development",
-        description: "Elegant 4-bedroom homes in a secure gated estate with clubhouse and golf course. Perfect for families seeking luxury and security in Abeokuta.",
-        price: 95000000,
-        location: "Abeokuta, Ogun",
-        propertyType: "residential",
-        bedrooms: 4,
-        bathrooms: 5,
-        area: 320,
-        amenities: ["Clubhouse", "Golf Course", "Security", "Playground", "Generator"],
-        images: ["https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"],
-        featured: true,
-        available: true,
-      },
-      {
-        title: "Modern Apartment Complex",
-        description: "Contemporary 3-bedroom apartments with city views and modern amenities in the heart of Lagos.",
-        price: 75000000,
-        location: "Ikeja, Lagos",
-        propertyType: "residential",
-        bedrooms: 3,
-        bathrooms: 4,
-        area: 180,
-        amenities: ["Gym", "Swimming Pool", "Security", "Parking", "Generator"],
-        images: ["https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"],
-        featured: false,
-        available: true,
-      },
-      {
-        title: "Commercial Land",
-        description: "Prime commercial land in Asaba suitable for shopping mall or office complex development.",
-        price: 120000000,
-        location: "Asaba, Delta",
-        propertyType: "land",
-        bedrooms: 0,
-        bathrooms: 0,
-        area: 1000,
-        amenities: ["Corner Plot", "Access Road", "Electricity", "Water"],
-        images: ["https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"],
-        featured: false,
         available: true,
       }
     ];
 
-    sampleProperties.forEach(property => {
+    sampleProperties.forEach((property) => {
       this.createProperty(property);
     });
 
     // Seed team members
     const sampleTeamMembers: InsertTeamMember[] = [
       {
-        name: "Olumide Adeyemi",
-        role: "Founder & Investment Advisor",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-        bio: "15+ years of experience in real estate investment and financial advisory",
-        linkedin: "#",
-        twitter: "#",
-        order: 1,
+        name: "Adebayo Johnson",
+        role: "CEO & Principal Broker",
+        bio: "With over 15 years in Nigerian real estate, Adebayo specializes in luxury properties and investment consulting for high-net-worth individuals.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+        linkedin: "https://linkedin.com/in/adebayo-johnson",
+        twitter: "https://twitter.com/adebayojohnson"
       },
       {
-        name: "Funmi Olateju",
-        role: "Head of Sales & Client Relations",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-        bio: "Expert in client relationship management and luxury property sales",
-        linkedin: "#",
-        twitter: "#",
-        order: 2,
+        name: "Fatima Abdullahi",
+        role: "Investment Advisor",
+        bio: "Fatima helps clients navigate real estate investments across Lagos and Abuja, with expertise in commercial properties and ROI optimization.",
+        image: "https://images.unsplash.com/photo-1494790108755-2616b612b169?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+        linkedin: "https://linkedin.com/in/fatima-abdullahi"
       },
       {
-        name: "Chidi Nwosu",
-        role: "Legal & Documentation Specialist",
-        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-        bio: "Specialized in real estate law and property documentation",
-        linkedin: "#",
-        twitter: "#",
-        order: 3,
-      },
-      {
-        name: "Aisha Bello",
-        role: "Market Research & Analysis",
-        image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-        bio: "Market analyst with deep insights into Nigerian real estate trends",
-        linkedin: "#",
-        twitter: "#",
-        order: 4,
+        name: "Emmanuel Okafor",
+        role: "Property Manager",
+        bio: "Emmanuel oversees property management and client relations, ensuring seamless transactions and exceptional customer service.",
+        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+        linkedin: "https://linkedin.com/in/emmanuel-okafor"
       }
     ];
 
-    sampleTeamMembers.forEach(member => {
+    sampleTeamMembers.forEach((member) => {
       this.createTeamMember(member);
     });
 
@@ -180,31 +122,31 @@ export class MemStorage implements IStorage {
     const sampleTestimonials: InsertTestimonial[] = [
       {
         name: "Adunni Adebayo",
-        role: "CEO, Lagos",
-        content: "Safehold Properties helped me acquire three investment properties in Lagos. Their expertise and market knowledge are unmatched. The ROI has exceeded my expectations, and their after-sales service is exceptional.",
-        image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+        role: "Business Owner",
+        content: "Safehold Properties helped me find the perfect investment property in Victoria Island. Their expertise and guidance throughout the process was exceptional.",
         rating: 5,
         featured: true,
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
       },
       {
-        name: "Emeka Okafor",
-        role: "Investment Banker",
-        content: "As a first-time property investor, I was nervous about making such a significant investment. The team at Safehold made the process seamless and transparent. I'm now a proud owner of a commercial property in Abuja.",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+        name: "Chike Okwu",
+        role: "Investor",
+        content: "The team's knowledge of the Abuja market is unmatched. They helped me secure a commercial property that has already exceeded my ROI expectations.",
         rating: 5,
         featured: true,
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
       },
       {
-        name: "The Johnsons",
-        role: "Diaspora Investors",
-        content: "Living in the UK, we needed a trusted partner to help us invest back home. Safehold Properties handled everything from property selection to legal documentation. We now own beautiful properties in both Nigeria and South Africa.",
-        image: "https://images.unsplash.com/photo-1509475826633-fed577a2c71b?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150",
+        name: "Amina Hassan",
+        role: "First-time Buyer",
+        content: "As a first-time buyer, I was nervous about the process. Safehold Properties made everything simple and helped me find my dream home in Abeokuta.",
         rating: 5,
         featured: true,
+        image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
       }
     ];
 
-    sampleTestimonials.forEach(testimonial => {
+    sampleTestimonials.forEach((testimonial) => {
       this.createTestimonial(testimonial);
     });
   }
@@ -243,17 +185,22 @@ export class MemStorage implements IStorage {
   async createProperty(insertProperty: InsertProperty): Promise<Property> {
     const id = randomUUID();
     const property: Property = {
-      ...insertProperty,
       id,
-      createdAt: new Date(),
-      area: insertProperty.area ?? null,
+      title: insertProperty.title,
+      description: insertProperty.description,
+      price: insertProperty.price,
+      location: insertProperty.location,
+      propertyType: insertProperty.propertyType,
       bedrooms: insertProperty.bedrooms ?? null,
       bathrooms: insertProperty.bathrooms ?? null,
+      area: insertProperty.area ?? null,
       amenities: insertProperty.amenities ?? null,
       images: insertProperty.images ?? null,
       featured: insertProperty.featured ?? null,
       available: insertProperty.available ?? null,
+      createdAt: new Date(),
     };
+
     this.properties.set(id, property);
     return property;
   }
@@ -261,15 +208,18 @@ export class MemStorage implements IStorage {
   async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {
     const id = randomUUID();
     const inquiry: Inquiry = {
-      ...insertInquiry,
       id,
-      createdAt: new Date(),
+      firstName: insertInquiry.firstName,
       lastName: insertInquiry.lastName ?? null,
+      email: insertInquiry.email,
+      phone: insertInquiry.phone,
       budget: insertInquiry.budget ?? null,
       interest: insertInquiry.interest ?? null,
       message: insertInquiry.message ?? null,
       propertyId: insertInquiry.propertyId ?? null,
+      createdAt: new Date(),
     };
+
     this.inquiries.set(id, inquiry);
     return inquiry;
   }
@@ -279,19 +229,22 @@ export class MemStorage implements IStorage {
   }
 
   async getTeamMembers(): Promise<TeamMember[]> {
-    return Array.from(this.teamMembers.values()).sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+    return Array.from(this.teamMembers.values()).sort((a, b) => a.name.localeCompare(b.name));
   }
 
   async createTeamMember(insertMember: InsertTeamMember): Promise<TeamMember> {
     const id = randomUUID();
-    const member: TeamMember = { 
-      ...insertMember, 
+    const member: TeamMember = {
       id,
-      order: insertMember.order ?? null,
+      name: insertMember.name,
+      role: insertMember.role,
+      image: insertMember.image,
       bio: insertMember.bio ?? null,
       linkedin: insertMember.linkedin ?? null,
       twitter: insertMember.twitter ?? null,
+      order: insertMember.order ?? null,
     };
+
     this.teamMembers.set(id, member);
     return member;
   }
@@ -306,12 +259,16 @@ export class MemStorage implements IStorage {
 
   async createTestimonial(insertTestimonial: InsertTestimonial): Promise<Testimonial> {
     const id = randomUUID();
-    const testimonial: Testimonial = { 
-      ...insertTestimonial, 
+    const testimonial: Testimonial = {
       id,
+      name: insertTestimonial.name,
+      role: insertTestimonial.role,
+      content: insertTestimonial.content,
+      image: insertTestimonial.image,
       rating: insertTestimonial.rating ?? null,
       featured: insertTestimonial.featured ?? null,
     };
+
     this.testimonials.set(id, testimonial);
     return testimonial;
   }
