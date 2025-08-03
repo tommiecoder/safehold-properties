@@ -182,6 +182,31 @@ export class MemStorage implements IStorage {
         ],
         featured: true,
         available: true,
+      },
+      {
+        title: "4-Bedroom Detached Duplex with BQ",
+        description: "This brand new 4-bedroom detached duplex in Sangotedo, Lagos, represents exceptional value for modern families seeking contemporary luxury at an accessible price point. The property features sophisticated architectural design with premium finishes throughout, including elegant marble flooring that flows seamlessly across all living spaces. The fully fitted kitchen showcases high-end cabinetry with beautiful granite countertops and modern appliances, making it a culinary enthusiast's dream. Each of the four bedrooms includes en suite bathrooms with luxury shower cubicles and modern fixtures, while the master suite features an indulgent jacuzzi for ultimate relaxation. The spacious living room is enhanced by designer ceiling lighting that creates a warm, inviting atmosphere perfect for both daily living and entertaining guests. Additional amenities include a separate boys quarters (BQ), interlocked compound for easy maintenance, quality security doors throughout, and comprehensive 24/7 security services. Located within a secured and serene estate with excellent road network connectivity, this property offers the perfect combination of luxury, convenience, and security for discerning homeowners.",
+        price: 125000000,
+        location: "Sangotedo, Lagos",
+        propertyType: "residential",
+        bedrooms: 4,
+        bathrooms: 5,
+        area: 380,
+        amenities: ["Boys Quarters (BQ)", "En Suite Rooms", "Jacuzzi", "Secured Estate", "Interlocked Compound", "Quality Security Doors", "Spacious Living Room", "Fully Fitted Kitchen", "Luxury Shower Cubicles", "Premium Marble Flooring", "Designer Lighting", "24/7 Security", "Good Road Network", "Brand New"],
+        images: [
+          "/attached_assets/Ins_-157785754_1754265201582.jpg",
+          "/attached_assets/Ins_997898345_1754265201614.jpg",
+          "/attached_assets/Ins_282324999_1754265201644.jpg",
+          "/attached_assets/Ins_-273643403_1754265201690.jpg",
+          "/attached_assets/Ins_-63581808_1754265201720.jpg",
+          "/attached_assets/Ins_-391914668_1754265201750.jpg",
+          "/attached_assets/Ins_638626558_1754265201778.jpg",
+          "/attached_assets/Ins_924408554_1754265201800.jpg",
+          "/attached_assets/Ins_-1207815637_1754265201820.jpg",
+          "/attached_assets/Ins_-2012339747_1754265201840.jpg"
+        ],
+        featured: false,
+        available: true,
       }
     ];
 
