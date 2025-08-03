@@ -58,7 +58,7 @@ export class MemStorage implements IStorage {
     const sampleProperties: InsertProperty[] = [
       {
         title: "Modern 2 Bedroom Apartment",
-        description: "Brand new 2-bedroom apartment in Ajah featuring modern finishes, spacious living area, fully equipped kitchen, and premium amenities. Located in a secure estate with 24/7 power supply and excellent facilities.",
+        description: "This modern 2-bedroom apartment in Ajah exemplifies contemporary urban living with its sophisticated design and premium finishes. The property features a spacious living area perfect for both relaxation and entertainment, complemented by a fully equipped kitchen that meets the highest standards of modern convenience. Residents enjoy access to exceptional amenities including a fully equipped gym, estate swimming pool, and round-the-clock security services. The apartment's strategic location within a secure estate ensures peace of mind while maintaining excellent connectivity to Lagos's key commercial and recreational areas.",
         price: 80000000,
         location: "Ajah, Lagos",
         propertyType: "residential",
@@ -84,7 +84,7 @@ export class MemStorage implements IStorage {
       },
       {
         title: "Brand New 4 Bedroom Fully Detached Duplex",
-        description: "NEW LISTING ‼️‼️\n\nBRAND NEW 4 BEDROOM FULLY DETACHED DUPLEX FOR SALE.\n\nLocation: Ajah Lagos\nTitle: Certificate of Occupancy\nBuilding Approval ✅\n\nFEATURES:\n• New\n• 4 Bed\n• BQ\n• Kitchenette\n• Fitted kitchen with accessories\n• Family lounge\n• Quality tiles\n• Pop design\n• All rooms En Suite\n• Secured and developed neighborhood\n• 24hrs Security",
+        description: "This brand new 4-bedroom fully detached duplex represents the pinnacle of modern luxury living in Ajah, Lagos. The property features a spacious layout with all bedrooms en-suite, a separate boys quarters (BQ), and a well-appointed kitchenette alongside a fully fitted kitchen with premium accessories. The home boasts a comfortable family lounge, quality tiles throughout, and elegant pop ceiling designs that enhance the sophisticated ambiance. Located in a secured and well-developed neighborhood with 24-hour security, this property comes with a Certificate of Occupancy and full building approval, ensuring complete peace of mind for discerning buyers.",
         price: 350000000,
         location: "Ajah, Lagos",
         propertyType: "residential",
