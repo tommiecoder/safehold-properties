@@ -132,6 +132,31 @@ export class MemStorage implements IStorage {
         ],
         featured: true,
         available: true,
+      },
+      {
+        title: "Brand New 5 Bedroom Duplex with BQ",
+        description: "This brand new 5-bedroom duplex represents exceptional value for discerning buyers seeking quality and security in Ajah, Lagos. The property features a separate boys quarters (BQ) and is strategically located within a secured and serene estate environment. The home showcases contemporary design elements including an interlocked compound that adds to its aesthetic appeal and functionality. Inside, residents will appreciate the spacious living room designed for both comfort and entertainment, complemented by a fully fitted kitchen that meets modern culinary standards. The property prioritizes security with quality security doors throughout, comprehensive CCTV surveillance system, and round-the-clock security services. The elegant shower cubicles in each bathroom reflect attention to detail in the finishing, making this an ideal investment for families who value both luxury and peace of mind.",
+        price: 150000000,
+        location: "Ajah, Lagos",
+        propertyType: "residential",
+        bedrooms: 5,
+        bathrooms: 5,
+        area: 400,
+        amenities: ["Boys Quarters (BQ)", "Secured Estate", "Interlocked Compound", "Quality Security Doors", "Spacious Living Room", "Fully Fitted Kitchen", "Shower Cubicle", "CCTV Surveillance", "24/7 Security", "Serene Environment"],
+        images: [
+          "/attached_assets/Ins_567187529_1754263896115.jpg",
+          "/attached_assets/Ins_632250176_1754263896154.jpg",
+          "/attached_assets/Ins_-1975041749_1754263896240.jpg",
+          "/attached_assets/Ins_-853349694_1754263896277.jpg",
+          "/attached_assets/Ins_-777436344_1754263896312.jpg",
+          "/attached_assets/Ins_-75615158_1754263896343.jpg",
+          "/attached_assets/Ins_506229433_1754263896365.jpg",
+          "/attached_assets/Ins_-544561270_1754263896388.jpg",
+          "/attached_assets/Ins_89917146_1754263896409.jpg",
+          "/attached_assets/Ins_-2034698163_1754263896430.jpg"
+        ],
+        featured: true,
+        available: true,
       }
     ];
 
