@@ -11,7 +11,7 @@ export default function Footer() {
               Safehold <span className="text-primary-orange">Properties</span>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
-              Your trusted partner for premium real estate investments across Nigeria and South Africa.
+              Your trusted partner for premium real estate investments across Nigeria and beyond.
             </p>
             <div className="flex space-x-4">
               <a
