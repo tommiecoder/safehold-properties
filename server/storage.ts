@@ -107,6 +107,31 @@ export class MemStorage implements IStorage {
         ],
         featured: true,
         available: true,
+      },
+      {
+        title: "Luxury 5 Bedroom Fully Detached Duplex with Swimming Pool",
+        description: "This exceptional 5-bedroom fully detached duplex sets a new standard for luxury living in Ajah, Lagos. The property features an impressive swimming pool as its centerpiece, complemented by a separate boys quarters and an elegant mini sit-out lounge perfect for outdoor entertaining. The home showcases sophisticated architectural details including high ceilings that create an airy, spacious atmosphere throughout the expansive living areas. The fully fitted kitchen represents the pinnacle of modern culinary design, while the master bathroom features both a luxurious jacuzzi and premium shower cubicle with elegant finishes. Located within a secured and serene estate environment, residents enjoy the peace of mind that comes with 24/7 security services and an interlocked compound that enhances the property's impressive curb appeal. The home also features a charming gazebo and security doors throughout, all backed by Governor's Consent for complete legal assurance.",
+        price: 300000000,
+        location: "Ajah, Lagos",
+        propertyType: "residential",
+        bedrooms: 5,
+        bathrooms: 5,
+        area: 450,
+        amenities: ["Swimming Pool", "Boys Quarters (BQ)", "Mini Sit-out Lounge", "High Ceilings", "Spacious Living Room", "Fully Fitted Kitchen", "Shower Cubicle", "Jacuzzi", "Secured Estate", "Interlocked Compound", "Security Doors", "24/7 Security", "Gazebo", "Governor's Consent"],
+        images: [
+          "/attached_assets/Ins_-1753285374_1754263592289.jpg",
+          "/attached_assets/Ins_-1553453108_1754263592335.jpg",
+          "/attached_assets/Ins_-1603066340_1754263592399.jpg",
+          "/attached_assets/Ins_-489947373_1754263592439.jpg",
+          "/attached_assets/Ins_1699827364_1754263592476.jpg",
+          "/attached_assets/Ins_-216038209_1754263592523.jpg",
+          "/attached_assets/Ins_783095896_1754263592560.jpg",
+          "/attached_assets/Ins_1491735393_1754263592627.jpg",
+          "/attached_assets/Ins_-1953440599_1754263592670.jpg",
+          "/attached_assets/Ins_-1849897572_1754263592707.jpg"
+        ],
+        featured: true,
+        available: true,
       }
     ];
 
