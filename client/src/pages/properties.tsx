@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Skeleton } from "@/components/ui/skeleton";
 import PropertyCard from "@/components/property-card";
 import SearchFilters, { type SearchFilters as SearchFiltersType } from "@/components/search-filters";
@@ -7,6 +8,7 @@ import type { Property } from "@shared/schema";
 
 export default function Properties() {
   const [searchFilters, setSearchFilters] = useState<SearchFiltersType>({});
+  const [, setLocation] = useLocation();
 
   const { data: properties, isLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties/search", searchFilters],
@@ -28,6 +30,10 @@ export default function Properties() {
 
   const handleSearch = (filters: SearchFiltersType) => {
     setSearchFilters(filters);
+  };
+
+  const handleViewDetails = (property: Property) => {
+    setLocation(`/properties/${property.id}`);
   };
 
   return (
@@ -78,7 +84,7 @@ export default function Properties() {
           ) : properties && properties.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {properties.map((property) => (
-                <PropertyCard key={property.id} property={property} />
+                <PropertyCard key={property.id} property={property} onViewDetails={handleViewDetails} />
               ))}
             </div>
           ) : (

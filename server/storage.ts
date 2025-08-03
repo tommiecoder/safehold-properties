@@ -54,7 +54,7 @@ export class MemStorage implements IStorage {
   }
 
   private seedData() {
-    // Seed properties with real Ajah apartment
+    // Seed properties with real Ajah properties
     const sampleProperties: InsertProperty[] = [
       {
         title: "Modern 2 Bedroom Apartment",
@@ -78,6 +78,32 @@ export class MemStorage implements IStorage {
           "/attached_assets/IMG-20250803-WA0140_1754260370059.jpg",
           "/attached_assets/IMG-20250803-WA0141_1754260370078.jpg",
           "/attached_assets/IMG-20250803-WA0142_1754260370097.jpg"
+        ],
+        featured: true,
+        available: true,
+      },
+      {
+        title: "Brand New 4 Bedroom Fully Detached Duplex",
+        description: "NEW LISTING ‼️‼️\n\nBRAND NEW 4 BEDROOM FULLY DETACHED DUPLEX FOR SALE.\n\nLocation: Ajah Lagos\nTitle: Certificate of Occupancy\nBuilding Approval ✅\n\nFEATURES:\n• New\n• 4 Bed\n• BQ\n• Kitchenette\n• Fitted kitchen with accessories\n• Family lounge\n• Quality tiles\n• Pop design\n• All rooms En Suite\n• Secured and developed neighborhood\n• 24hrs Security",
+        price: 350000000,
+        location: "Ajah, Lagos",
+        propertyType: "residential",
+        bedrooms: 4,
+        bathrooms: 4,
+        area: 350,
+        amenities: ["BQ (Boys Quarters)", "Kitchenette", "Fitted Kitchen with Accessories", "Family Lounge", "Quality Tiles", "Pop Design", "All Rooms En Suite", "Secured Neighborhood", "24hrs Security", "Certificate of Occupancy", "Building Approval"],
+        images: [
+          "/attached_assets/IMG_6426_1754261332731.PNG",
+          "/attached_assets/IMG_6424_1754261332765.PNG",
+          "/attached_assets/IMG_6431_1754261332808.PNG",
+          "/attached_assets/IMG_6427_1754261332856.PNG",
+          "/attached_assets/IMG_6430_1754261332901.PNG",
+          "/attached_assets/IMG_6429_1754261332934.PNG",
+          "/attached_assets/IMG_6421_1754261332963.PNG",
+          "/attached_assets/IMG_6422_1754261332997.PNG",
+          "/attached_assets/IMG_6417_1754261333030.PNG",
+          "/attached_assets/IMG_6432_1754261333061.PNG",
+          "/attached_assets/IMG_6420_1754261333094.PNG"
         ],
         featured: true,
         available: true,

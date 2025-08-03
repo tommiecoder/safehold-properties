@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -10,6 +10,7 @@ import type { Property, Testimonial } from "@shared/schema";
 import { ArrowRight, Star, Home as HomeIcon, Building, Users } from "lucide-react";
 
 export default function Home() {
+  const [, setLocation] = useLocation();
   const { data: featuredProperties, isLoading: propertiesLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties/featured"],
   });
@@ -17,6 +18,10 @@ export default function Home() {
   const { data: testimonials, isLoading: testimonialsLoading } = useQuery<Testimonial[]>({
     queryKey: ["/api/testimonials/featured"],
   });
+
+  const handleViewDetails = (property: Property) => {
+    setLocation(`/properties/${property.id}`);
+  };
 
   const stats = [
     { label: "Properties Sold", value: "500+" },
@@ -91,7 +96,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProperties?.map((property, index) => (
                 <div key={property.id} className="animate-fade-in hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
-                  <PropertyCard property={property} />
+                  <PropertyCard property={property} onViewDetails={handleViewDetails} />
                 </div>
               ))}
             </div>

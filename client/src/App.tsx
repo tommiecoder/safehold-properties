@@ -8,6 +8,7 @@ import Footer from "@/components/layout/footer";
 import WhatsAppWidget from "@/components/whatsapp-widget";
 import Home from "@/pages/home";
 import Properties from "@/pages/properties";
+import PropertyDetail from "@/pages/property-detail";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
@@ -17,6 +18,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/properties" component={Properties} />
+      <Route path="/properties/:id" component={PropertyDetail} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
