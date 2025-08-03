@@ -75,7 +75,7 @@ export default function Footer() {
               <li><a href="#" className="hover:text-primary-orange transition-colors">Abuja Listings</a></li>
               <li><a href="#" className="hover:text-primary-orange transition-colors">Abeokuta Investments</a></li>
               <li><a href="#" className="hover:text-primary-orange transition-colors">Asaba Properties</a></li>
-              <li><a href="#" className="hover:text-primary-orange transition-colors">South Africa</a></li>
+              <li><a href="#" className="hover:text-primary-orange transition-colors">International</a></li>
             </ul>
           </div>
 

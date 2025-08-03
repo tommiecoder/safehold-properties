@@ -3,7 +3,7 @@ export const LOCATIONS = [
   "Abuja", 
   "Abeokuta",
   "Asaba",
-  "South Africa"
+  "International"
 ] as const;
 
 export const PROPERTY_TYPES = [

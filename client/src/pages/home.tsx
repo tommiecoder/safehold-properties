@@ -45,7 +45,7 @@ export default function Home() {
                 Your Gateway to <span className="text-gradient">Premium</span> Nigerian Real Estate
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
-                Expert investment guidance for discerning buyers in Lagos, Abuja, Abeokuta, Asaba, and South Africa. 
+                Expert investment guidance for discerning buyers in Lagos, Abuja, Abeokuta, Asaba, and beyond. 
                 Build generational wealth through strategic property investments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{animationDelay: '0.4s'}}>

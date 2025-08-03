@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack real estate investment platform built with React/TypeScript frontend and Express.js backend. The application serves as a property marketplace focusing on premium Nigerian real estate investments, with operations extending to South Africa. It features property listings, search functionality, lead capture forms, team profiles, and testimonials.
+This is a full-stack real estate investment platform built with React/TypeScript frontend and Express.js backend. The application serves as a property marketplace focusing on premium Nigerian real estate investments, with operations extending beyond Nigeria. It features property listings, search functionality, lead capture forms, team profiles, and testimonials.
 
 ## User Preferences
 
@@ -50,7 +50,7 @@ Preferred communication style: Simple, everyday language.
 - Property search with multiple filter criteria (type, location, price range, bedrooms, bathrooms)
 - Featured content highlighting system
 - Lead qualification through structured forms
-- Multi-location support (Lagos, Abuja, Abeokuta, Asaba, South Africa)
+- Multi-location support (Lagos, Abuja, Abeokuta, Asaba, and beyond)
 
 ## Data Flow
 

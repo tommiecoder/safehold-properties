@@ -40,7 +40,7 @@ export default function Properties() {
               Premium Properties
             </h1>
             <p className="text-xl text-slate-blue max-w-3xl mx-auto">
-              Discover exceptional real estate investment opportunities across Nigeria and South Africa
+              Discover exceptional real estate investment opportunities across Nigeria and beyond
             </p>
           </div>
         </div>
