@@ -247,28 +247,20 @@ export class MemStorage implements IStorage {
     // Seed testimonials
     const sampleTestimonials: InsertTestimonial[] = [
       {
-        name: "Adunni Adebayo",
-        role: "Business Owner",
-        content: "Safehold Properties helped me find the perfect investment property in Victoria Island. Their expertise and guidance throughout the process was exceptional.",
+        name: "Satisfied Client",
+        role: "Property Investor",
+        content: "/attached_assets/IMG_8880.mp4",
         rating: 5,
         featured: true,
         image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
       },
       {
-        name: "Chike Okwu",
-        role: "Investor",
-        content: "The team's knowledge of the Abuja market is unmatched. They helped me secure a commercial property that has already exceeded my ROI expectations.",
+        name: "Happy Customer",
+        role: "Real Estate Client",  
+        content: "/attached_assets/IMG_8811.mp4",
         rating: 5,
         featured: true,
         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
-      },
-      {
-        name: "Amina Hassan",
-        role: "First-time Buyer",
-        content: "As a first-time buyer, I was nervous about the process. Safehold Properties made everything simple and helped me find my dream home in Abeokuta.",
-        rating: 5,
-        featured: true,
-        image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400"
       }
     ];
 

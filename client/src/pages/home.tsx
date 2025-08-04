@@ -323,36 +323,38 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               {testimonials?.map((testimonial) => (
-                <Card key={testimonial.id} className="bg-white">
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-16 h-16 rounded-full object-cover mr-4"
-                      />
+                <Card key={testimonial.id} className="bg-white hover-lift shadow-luxury">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
                       <div>
-                        <div className="font-semibold text-rich-black">
+                        <div className="font-semibold text-rich-black text-lg">
                           {testimonial.name}
                         </div>
                         <div className="text-slate-blue text-sm">
                           {testimonial.role}
                         </div>
                       </div>
+                      <div className="flex">
+                        {[...Array(testimonial.rating || 5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-primary-orange text-primary-orange"
+                          />
+                        ))}
+                      </div>
                     </div>
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 fill-primary-orange text-primary-orange"
-                        />
-                      ))}
+                    <div className="relative rounded-lg overflow-hidden bg-gray-100">
+                      <video
+                        src={testimonial.content}
+                        controls
+                        className="w-full h-64 object-cover"
+                        preload="metadata"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
-                    <p className="text-slate-blue leading-relaxed">
-                      {testimonial.content}
-                    </p>
                   </CardContent>
                 </Card>
               ))}

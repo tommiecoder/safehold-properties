@@ -50,6 +50,7 @@ export const testimonials = pgTable("testimonials", {
   role: text("role").notNull(),
   content: text("content").notNull(),
   image: text("image").notNull(),
+  video: text("video"),
   rating: integer("rating").default(5),
   featured: boolean("featured").default(false),
 });
