@@ -100,10 +100,11 @@ Preferred communication style: Simple, everyday language.
 - **Database**: Development database with Drizzle migrations
 
 ### Production Build
-- **Frontend**: Vite production build to `dist/public`
+- **Frontend**: Vite production build to `dist/public`, then moved to `dist/` for deployment
 - **Backend**: esbuild bundle to `dist/index.js`
 - **Assets**: Static file serving through Express
 - **Environment**: NODE_ENV-based configuration switching
+- **Deployment Fix**: Custom post-build script moves files from `dist/public` to `dist` for static deployment compatibility
 
 ### Database Management
 - **Migrations**: Drizzle Kit push/migrate commands
@@ -115,3 +116,33 @@ Preferred communication style: Simple, everyday language.
 - **API Routes**: Express server handles all `/api/*` endpoints
 - **Database**: PostgreSQL compatible (configured for Neon)
 - **Environment Variables**: DATABASE_URL required for operation
+
+## Build Scripts and Deployment Fix
+
+### Custom Build Process
+Due to deployment configuration constraints, the project includes custom build scripts to handle file structure requirements:
+
+- **scripts/post-build.js**: Moves files from `dist/public` to `dist` after Vite build
+- **scripts/build.js**: Comprehensive build wrapper (alternative to npm build)  
+- **build.sh**: Shell script for complete build process with file restructuring
+
+### Deployment Structure Issue Resolution
+The original build process created a `dist/public` structure, but Replit static deployments expect files directly in `dist`. The implemented solution:
+
+1. Vite builds frontend to `dist/public` (cannot modify due to config constraints)
+2. Post-build script automatically moves all files from `dist/public` to `dist`  
+3. Removes the now-empty `dist/public` directory
+4. Results in `index.html` and assets directly in `dist` as required by deployment
+
+### Usage
+For manual builds with proper deployment structure:
+```bash
+# Option 1: Run npm build + post-build script
+npm run build && node scripts/post-build.js
+
+# Option 2: Use custom build script
+node scripts/build.js  
+
+# Option 3: Use shell script
+./build.sh
+```
