@@ -4,10 +4,10 @@ import { Link } from "wouter";
 
 export default function About() {
   const stats = [
-    { label: "Properties Sold", value: "500+" },
-    { label: "Investment Volume", value: "₦50B+" },
-    { label: "Happy Clients", value: "300+" },
-    { label: "Years Experience", value: "15" },
+    { label: "Properties Sold", value: "100+" },
+    { label: "Investment Volume", value: "Coming Soon" },
+    { label: "Happy Clients", value: "75+" },
+    { label: "Years Experience", value: "5" },
   ];
 
   return (
@@ -38,7 +38,7 @@ export default function About() {
                 has guided hundreds of investors toward building generational wealth through strategic property acquisitions.
               </p>
               <p className="text-lg text-slate-blue mb-6 leading-relaxed">
-                Our founder, a seasoned investment advisor with over 15 years in the financial markets, recognized 
+                Our founder, a seasoned investment advisor with 5 years of focused experience in the financial markets, recognized 
                 the untapped potential in Nigeria's real estate sector and expanded our reach to serve discerning 
                 investors across West Africa and beyond.
               </p>
