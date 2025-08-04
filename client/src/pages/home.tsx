@@ -290,7 +290,7 @@ export default function Home() {
                 Schedule Consultation
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-blue">
+            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-slate-blue bg-white/10 backdrop-blur-sm">
               <Link href="/properties">
                 Browse Properties
               </Link>
