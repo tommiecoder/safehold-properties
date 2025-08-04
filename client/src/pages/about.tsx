@@ -6,7 +6,7 @@ export default function About() {
   const stats = [
     { label: "Properties Sold", value: "100+" },
     { label: "Happy Clients", value: "75+" },
-    { label: "Years Experience", value: "5" },
+    { label: "Years Experience", value: "5+" },
   ];
 
   return (
@@ -19,8 +19,8 @@ export default function About() {
               Building Wealth Through Strategic Real Estate Investments
             </h1>
             <p className="text-xl text-slate-blue max-w-3xl mx-auto leading-relaxed">
-              Founded with a vision to democratize premium real estate investment in Nigeria, 
-              Safehold Properties has guided hundreds of investors toward building generational wealth.
+              Led by Patience Ime Obi, a seasoned real estate professional known for integrity, sincerity, and diplomacy. 
+              Since 2020, we've guided hundreds of investors toward building generational wealth through strategic property investments.
             </p>
           </div>
         </div>
@@ -31,20 +31,21 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-dm-serif text-4xl text-rich-black mb-6">Our Story</h2>
+              <h2 className="font-dm-serif text-4xl text-rich-black mb-6">Meet Patience Ime Obi</h2>
               <p className="text-lg text-slate-blue mb-6 leading-relaxed">
-                Founded with a vision to democratize premium real estate investment in Nigeria, Safehold Properties 
-                has guided hundreds of investors toward building generational wealth through strategic property acquisitions.
+                A real estate professional since 2020, Patience Ime Obi is known for integrity, sincerity, and diplomacy in all her dealings. 
+                Throughout her tenure in the business, she has first and foremost strived to be someone in whom her clients and colleagues can put their trust and faith.
               </p>
               <p className="text-lg text-slate-blue mb-6 leading-relaxed">
-                Our founder, a seasoned investment advisor with 5 years of focused experience in the financial markets, recognized 
-                the untapped potential in Nigeria's real estate sector and expanded our reach to serve discerning 
-                investors across West Africa and beyond.
+                Patience uses her unique negotiating insights to tirelessly advocate for her clients. She is assertive and effective without being too aggressive. 
+                A born and bred Lagosian, Patience offers seasoned knowledge of the city and intimate understanding of what makes each distinct residential area so special.
               </p>
-              <p className="text-lg text-slate-blue mb-8 leading-relaxed">
-                Today, we pride ourselves on providing personalized service, expert market insights, and access to 
-                premium properties that deliver exceptional returns. Our commitment to transparency, integrity, and 
-                client success has made us the trusted partner for real estate investment in Nigeria.
+              <p className="text-lg text-slate-blue mb-6 leading-relaxed">
+                Above all, Patience values relationships over transactions, and much of her business comes from repeat clients and referrals. 
+                Whether it's a starter apartment, investment property, or second home, Patience provides the same level of unmatched service for all her buyers, sellers, and renters at any stage of their real estate journey.
+              </p>
+              <p className="text-lg text-slate-blue mb-8 leading-relaxed italic">
+                "Buying a home can be one of the most important and emotional decisions in a person's life, and I am honored when clients choose me to help guide them through the process."
               </p>
 
               <Button asChild size="lg" className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold">
@@ -80,7 +81,8 @@ export default function About() {
                 <h3 className="font-dm-serif text-2xl text-rich-black mb-4">Our Mission</h3>
                 <p className="text-slate-blue leading-relaxed">
                   To empower individuals and families to build lasting wealth through strategic real estate investments, 
-                  providing expert guidance, premium properties, and personalized service that exceeds expectations.
+                  providing expert guidance with integrity, sincerity, and personalized service that exceeds expectations. 
+                  We value relationships over transactions.
                 </p>
               </CardContent>
             </Card>
@@ -89,9 +91,9 @@ export default function About() {
               <CardContent className="p-8">
                 <h3 className="font-dm-serif text-2xl text-rich-black mb-4">Our Vision</h3>
                 <p className="text-slate-blue leading-relaxed">
-                  To be the leading real estate investment platform in West Africa, known for our integrity, 
-                  market expertise, and commitment to helping our clients achieve their financial goals through 
-                  strategic property investments.
+                  To be the leading real estate service in Lagos and beyond, known for our integrity, diplomacy, 
+                  and deep local market expertise. We strive to be trusted advisors who help clients navigate 
+                  their real estate journey with confidence and success.
                 </p>
               </CardContent>
             </Card>
