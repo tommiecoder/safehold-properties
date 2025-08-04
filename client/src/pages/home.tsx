@@ -26,7 +26,6 @@ export default function Home() {
   const stats = [
     { label: "Happy Clients", value: "75+" },
     { label: "Properties Sold", value: "100+" },
-    { label: "Investment Volume", value: "Coming Soon" },
     { label: "Years Experience", value: "5" },
   ];
 

@@ -5,7 +5,6 @@ import { Link } from "wouter";
 export default function About() {
   const stats = [
     { label: "Properties Sold", value: "100+" },
-    { label: "Investment Volume", value: "Coming Soon" },
     { label: "Happy Clients", value: "75+" },
     { label: "Years Experience", value: "5" },
   ];
