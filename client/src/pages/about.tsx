@@ -107,7 +107,7 @@ export default function About() {
             <p className="text-xl text-white/90">Numbers that speak to our success and client satisfaction</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="font-dm-serif text-3xl md:text-4xl text-primary-orange mb-2">
