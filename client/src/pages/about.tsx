@@ -57,7 +57,7 @@ export default function About() {
             <div className="space-y-6">
               <img
                 src="/images/founder-profile.jpg"
-                alt="Founder profile"
+                alt="Founder profile - Professional real estate expert"
                 className="rounded-2xl shadow-lg w-full object-cover object-center"
                 style={{
                   imageRendering: 'crisp-edges',
