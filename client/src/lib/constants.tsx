@@ -1,6 +1,6 @@
 export const LOCATIONS = [
   "Lagos",
-  "Abuja", 
+  "Abuja",
   "Abeokuta",
   "Asaba",
   "International"
@@ -8,7 +8,7 @@ export const LOCATIONS = [
 
 export const PROPERTY_TYPES = [
   "residential",
-  "commercial", 
+  "commercial",
   "land",
   "mixed use"
 ] as const;
@@ -37,13 +37,11 @@ export const WHATSAPP_MESSAGE = "Hi, I'm interested in learning more about real 
 
 export const COMPANY_INFO = {
   name: "Safehold Properties",
-  email: "info@safeholdproperties.com",
+  address: "1b Lavinia Close, Peninsula Gardens Estate, Sangotedo, Ajah, Lekki 101245, Lagos",
   phone: "+2347035539944",
-  address: "Plot 123, Victoria Island, Lagos, Nigeria",
+  email: "info@safeholdproperties.com",
   socialMedia: {
     instagram: "https://www.instagram.com/safehold_properties",
-    whatsapp: `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}`,
-    linkedin: "#",
-    facebook: "#"
+    whatsapp: `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}`
   }
 } as const;
