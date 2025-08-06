@@ -4,10 +4,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { COMPANY_INFO, WHATSAPP_NUMBER } from "@/lib/constants";
+import { cn } from "@/lib/utils"; // Assuming cn is a utility for classNames
 
 export default function Header() {
   const [location] = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Renamed from isOpen to isMenuOpen for clarity
 
   const navigation = [
     { name: "Home", href: "/" },
@@ -21,39 +22,61 @@ export default function Header() {
     return location.startsWith(href);
   };
 
+  // Placeholder for navItems and isActive if they are used in the changes
+  // If not used, these can be removed or adjusted based on the actual implementation.
+  const navItems = navigation.map(item => ({ path: item.href, name: item.name }));
+  const isActive = isActiveLink;
+
+
+  // Add scroll-to-top functionality on route change
+  useEffect(() => {
+    const handleRouteChange = () => {
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('popstate', handleRouteChange);
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+    };
+  }, [location]); // Re-run effect when location changes
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <Link href="/" className="flex items-center space-x-3">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
             <img 
               src="/images/safehold-logo.png" 
               alt="Safehold Properties Logo" 
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
-            <div className="text-2xl font-dm-serif font-bold text-rich-black">
+            <div className="text-2xl font-dm-serif font-bold text-rich-black hidden sm:block">
               Safehold <span className="text-primary-orange">Properties</span>
             </div>
           </Link>
 
-          <nav className="hidden md:flex space-x-8">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navigation.map((item) => (
-              item.name !== "Team" && (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`transition-colors ${
-                    isActiveLink(item.href)
-                      ? "text-primary-orange font-medium"
-                      : "text-rich-black hover:text-primary-orange"
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "font-medium text-sm lg:text-base transition-colors hover:text-primary-orange",
+                  isActiveLink(item.href) 
+                    ? "text-primary-orange" 
+                    : "text-rich-black hover:text-primary-orange"
+                )}
+              >
+                {item.name}
+              </Link>
             ))}
-          </nav>
+            <Button className="bg-orange-gradient text-white px-4 lg:px-6 text-sm lg:text-base hover:shadow-lg transition-all duration-300 font-medium">
+              Schedule Call
+            </Button>
+          </div>
 
+          {/* Social Icons and Mobile menu button */}
           <div className="flex items-center space-x-4">
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}?text=${encodeURIComponent("Hi, I'd like to schedule a consultation about real estate investment.")}`}
@@ -75,46 +98,52 @@ export default function Header() {
                 <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348zm7.718 0c-1.297 0-2.348-1.051-2.348-2.348s1.051-2.348 2.348-2.348 2.348 1.051 2.348 2.348-1.051 2.348-2.348 2.348z"/>
               </svg>
             </a>
-            <Button className="bg-orange-gradient text-white hover:shadow-lg transition-all duration-300 font-medium hidden sm:inline-flex">
-              Schedule Call
-            </Button>
 
-            {/* Mobile menu */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col space-y-4 mt-8">
-                  {navigation.map((item) => (
-                    item.name !== "Team" && (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={`text-lg transition-colors ${
-                          isActiveLink(item.href)
-                            ? "text-primary-orange font-medium"
-                            : "text-rich-black hover:text-primary-orange"
-                        }`}
-                      >
-                        {item.name}
-                      </Link>
-                    )
-                  ))}
-                  <div className="pt-4 border-t border-silver-gray">
-                    <Button className="w-full bg-orange-gradient text-white">
-                      Schedule Call
-                    </Button>
-                  </div>
-                </nav>
-              </SheetContent>
-            </Sheet>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-slate-blue hover:text-primary-orange hover:bg-transparent p-2"
+              >
+                {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+            <div className="px-2 pt-2 pb-3 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => {
+                    setIsMenuOpen(false); // Close menu on link click
+                    window.scrollTo(0, 0); // Scroll to top
+                  }}
+                  className={cn(
+                    "block px-3 py-3 text-base font-medium rounded-md transition-colors touch-manipulation",
+                    isActiveLink(item.href) 
+                      ? "text-primary-orange bg-orange-50" 
+                      : "text-slate-blue hover:text-primary-orange hover:bg-gray-50"
+                  )}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="px-3 pt-2 pb-1">
+                <Button className="w-full bg-orange-gradient text-white py-3 text-base touch-manipulation">
+                  Schedule Call
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
     </header>
   );
 }

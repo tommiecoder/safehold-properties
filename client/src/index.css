@@ -235,6 +235,63 @@
   .shadow-orange {
     box-shadow: 0 10px 30px rgba(255, 102, 0, 0.2);
   }
+  
+  /* Responsive utilities */
+  .responsive-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .responsive-text-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .responsive-text-lg {
+    @apply text-lg sm:text-xl lg:text-2xl;
+  }
+  
+  .responsive-text-xl {
+    @apply text-xl sm:text-2xl lg:text-3xl;
+  }
+  
+  .responsive-text-2xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl;
+  }
+  
+  .responsive-text-3xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  /* Mobile-first grid utilities */
+  .responsive-grid-1-2 {
+    @apply grid grid-cols-1 md:grid-cols-2;
+  }
+  
+  .responsive-grid-1-3 {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+  
+  .responsive-grid-2-3 {
+    @apply grid grid-cols-1 lg:grid-cols-3;
+  }
+  
+  /* Container with consistent max-width */
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Button responsive sizing */
+  .btn-responsive {
+    @apply px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base;
+  }
+  
+  /* Responsive spacing */
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+  
+  .section-padding-sm {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
 }
 
 @keyframes float {
