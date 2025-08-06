@@ -50,7 +50,7 @@ export default function Header() {
               alt="Safehold Properties Logo" 
               className="h-8 sm:h-10 w-auto"
             />
-            <div className="text-2xl font-dm-serif font-bold text-rich-black hidden sm:block">
+            <div className="text-xl sm:text-2xl font-dm-serif font-bold text-rich-black">
               Safehold <span className="text-primary-orange">Properties</span>
             </div>
           </Link>

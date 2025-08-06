@@ -42,36 +42,39 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center parallax">
+      <section className="relative h-screen flex items-center">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
           }}
         >
-          <div className="absolute inset-0 gradient-overlay"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="max-w-4xl w-full">
-            <h1 className="font-dm-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight animate-slide-up">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="font-dm-serif text-4xl md:text-6xl font-bold text-white mb-6">
               Find Your Perfect Home in Lagos
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 sm:mb-8 animate-slide-up leading-relaxed" style={{ animationDelay: "0.2s" }}>
-              Premium properties in prime locations. Your dream home awaits in the heart of Lagos.
+            <p className="text-xl text-white/90 mb-8">
+              Premium properties in prime locations. Your dream home awaits in
+              the heart of Lagos.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-slide-up w-full sm:w-auto" style={{ animationDelay: "0.4s" }}>
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
-                className="btn-premium px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                size="lg"
+                className="btn-premium text-white font-semibold"
               >
                 <Link href="/properties">Explore Properties</Link>
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="bg-white/10 border-white/20 text-white hover:bg-white hover:text-slate-blue backdrop-blur-sm px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-slate-blue"
               >
                 <Link href="/contact">Schedule Viewing</Link>
               </Button>
