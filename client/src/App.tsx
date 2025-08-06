@@ -11,6 +11,7 @@ import Properties from "@/pages/properties";
 import PropertyDetail from "@/pages/property-detail";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
+import Admin from "@/pages/admin"; // Assuming Admin component is in pages/admin
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path="/properties/:id" component={PropertyDetail} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/admin" component={Admin} />
       <Route component={NotFound} />
     </Switch>
   );

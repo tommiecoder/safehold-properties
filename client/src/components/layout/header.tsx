@@ -104,6 +104,17 @@ export default function Header() {
                       </Link>
                     )
                   ))}
+                  <Link
+                    href="/admin"
+                    onClick={() => setIsOpen(false)}
+                    className={`text-lg transition-colors ${
+                      isActiveLink("/admin")
+                        ? "text-primary-orange font-medium"
+                        : "text-rich-black hover:text-primary-orange"
+                    }`}
+                  >
+                    Admin
+                  </Link>
                   <div className="pt-4 border-t border-silver-gray">
                     <Button className="w-full bg-orange-gradient text-white">
                       Schedule Call
