@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { Label } from "@/components/ui/label";
 
 const contactFormSchema = z.object({
   firstName: z.string().min(2, "First name must be at least 2 characters"),
@@ -68,60 +67,61 @@ export default function ContactForm() {
     <Card>
       <CardContent className="p-8">
         <h3 className="font-dm-serif text-2xl text-rich-black mb-6">Send us a Message</h3>
-
+        
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <Label htmlFor="firstName" className="text-sm sm:text-base">First Name</Label>
-                <Input
-                  id="firstName"
-                  {...form.register("firstName")}
-                  className="mt-1 text-sm sm:text-base py-2 sm:py-3"
-                />
-                {form.formState.errors.firstName && (
-                  <p className="text-red-500 text-xs sm:text-sm mt-1">{form.formState.errors.firstName.message}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="First Name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
-              </div>
-              <div>
-                <Label htmlFor="lastName" className="text-sm sm:text-base">Last Name</Label>
-                <Input
-                  id="lastName"
-                  {...form.register("lastName")}
-                  className="mt-1 text-sm sm:text-base py-2 sm:py-3"
-                />
-                {form.formState.errors.lastName && (
-                  <p className="text-red-500 text-xs sm:text-sm mt-1">{form.formState.errors.lastName.message}</p>
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input placeholder="Last Name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
                 )}
-              </div>
+              />
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div>
-                <Label htmlFor="email" className="text-sm sm:text-base">Email Address</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  {...form.register("email")}
-                  className="mt-1 text-sm sm:text-base py-2 sm:py-3"
-                />
-                {form.formState.errors.email && (
-                  <p className="text-red-500 text-xs sm:text-sm mt-1">{form.formState.errors.email.message}</p>
-                )}
-              </div>
-              <div>
-                <Label htmlFor="phone" className="text-sm sm:text-base">Phone Number</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  {...form.register("phone")}
-                  className="mt-1 text-sm sm:text-base py-2 sm:py-3"
-                />
-                {form.formState.errors.phone && (
-                  <p className="text-red-500 text-xs sm:text-sm mt-1">{form.formState.errors.phone.message}</p>
-                )}
-              </div>
-            </div>
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input type="email" placeholder="Email Address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input type="tel" placeholder="Phone Number" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}

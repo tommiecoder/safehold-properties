@@ -1,24 +1,12 @@
 import { Link } from "wouter";
 import { COMPANY_INFO } from "@/lib/constants";
 
-// Assuming Phone, Mail, and MapPin are imported from an icon library like lucide-react
-// For demonstration purposes, let's define placeholder components if they are not provided.
-// In a real scenario, you would import these:
-// import { Phone, Mail, MapPin } from "lucide-react";
-
-// Placeholder components if not provided in the original context
-const Phone = ({ className, ...props }) => <svg className={className} fill="currentColor" viewBox="0 0 24 24" {...props}><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>;
-const Mail = ({ className, ...props }) => <svg className={className} fill="currentColor" viewBox="0 0 24 24" {...props}><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>;
-const MapPin = ({ className, ...props }) => <svg className={className} fill="currentColor" viewBox="0 0 24 24" {...props}><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>;
-
-
 export default function Footer() {
   return (
     <footer className="bg-slate-blue text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {/* Company Info */}
-          <div className="space-y-3 sm:space-y-4 sm:col-span-2 lg:col-span-1">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
             <div className="text-2xl font-dm-serif font-bold mb-4">
               Safehold <span className="text-primary-orange">Properties</span>
             </div>
@@ -71,7 +59,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div>
             <h3 className="font-dm-serif text-xl mb-4">Contact</h3>
             <ul className="space-y-2 text-white/80">
               <li className="flex items-center space-x-2">

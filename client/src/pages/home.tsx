@@ -42,42 +42,58 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center parallax">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')",
           }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 gradient-overlay"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="font-dm-serif text-4xl md:text-6xl font-bold text-white mb-6">
-              Find Your Perfect Home in Lagos
-            </h1>
-            <p className="text-xl text-white/90 mb-8">
-              Premium properties in prime locations. Your dream home awaits in
-              the heart of Lagos.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                size="lg"
-                className="btn-premium text-white font-semibold"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade-in">
+              <h1 className="font-dm-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-slide-up">
+                Your Gateway to <span className="text-gradient">Premium</span>{" "}
+                Nigerian Real Estate
+              </h1>
+              <p
+                className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed animate-slide-up"
+                style={{ animationDelay: "0.2s" }}
               >
-                <Link href="/properties">Explore Properties</Link>
-              </Button>
-              <Button
-                variant="outline"
-                asChild
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-slate-blue"
+                Expert investment guidance for discerning buyers in Lagos,
+                Abuja, Abeokuta, Asaba, and beyond. Build generational wealth
+                through strategic property investments.
+              </p>
+              <div
+                className="flex flex-col sm:flex-row gap-4 animate-slide-up"
+                style={{ animationDelay: "0.4s" }}
               >
-                <Link href="/contact">Schedule Viewing</Link>
-              </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="btn-premium text-white font-semibold text-lg hover-lift rounded-xl"
+                >
+                  <Link href="/properties">
+                    View Properties <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="glass-dark border-white/30 text-white hover:bg-white/10 transition-all duration-300 rounded-xl backdrop-blur-sm"
+                >
+                  <Link href="/contact">Schedule Consultation</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="animate-fade-in" style={{ animationDelay: "0.6s" }}>
+              <LeadCaptureForm className="max-w-lg ml-auto glass-card" />
             </div>
           </div>
         </div>
