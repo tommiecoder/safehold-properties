@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertInquirySchema, insertPropertySchema } from "@shared/schema";
+import { insertInquirySchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -51,30 +51,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(property);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch property" });
-    }
-  });
-
-  // Create property endpoint
-  app.post("/api/properties", async (req, res) => {
-    try {
-      const validatedData = insertPropertySchema.parse(req.body);
-      const property = await storage.createProperty(validatedData);
-      res.status(201).json(property);
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ error: "Invalid property data", details: error.errors });
-      }
-      res.status(500).json({ error: "Failed to create property" });
-    }
-  });
-
-  // Get inquiries endpoint
-  app.get("/api/inquiries", async (req, res) => {
-    try {
-      const inquiries = await storage.getInquiries();
-      res.json(inquiries);
-    } catch (error) {
-      res.status(500).json({ error: "Failed to fetch inquiries" });
     }
   });
 
