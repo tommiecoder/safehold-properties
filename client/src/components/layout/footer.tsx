@@ -7,9 +7,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="text-2xl font-dm-serif font-bold mb-4">
-              Safehold <span className="text-primary-orange">Properties</span>
-            </div>
+            <img 
+              src="/images/safehold-full-logo.png" 
+              alt="Safehold Properties" 
+              className="h-10 w-auto mb-4"
+            />
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted partner for premium real estate investments across Nigeria and beyond.
             </p>
