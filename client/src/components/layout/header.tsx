@@ -30,6 +30,10 @@ export default function Header() {
               src="/images/safehold-new-logo.png" 
               alt="Safehold Properties" 
               className="h-10 w-auto object-contain max-w-none"
+              onError={(e) => {
+                console.log('Logo failed to load, using fallback');
+                e.currentTarget.src = '/images/safehold-logo.png';
+              }}
             />
           </Link>
 

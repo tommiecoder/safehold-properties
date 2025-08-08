@@ -11,6 +11,10 @@ export default function Footer() {
               src="/images/safehold-new-logo.png" 
               alt="Safehold Properties" 
               className="h-10 w-auto object-contain mb-4 max-w-none"
+              onError={(e) => {
+                console.log('Footer logo failed to load, using fallback');
+                e.currentTarget.src = '/images/safehold-logo.png';
+              }}
             />
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted partner for premium real estate investments across Nigeria and beyond.
