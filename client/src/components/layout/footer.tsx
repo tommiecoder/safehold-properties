@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <img 
-              src="/images/safehold-full-logo.png" 
+              src="/images/safehold-new-logo.png" 
               alt="Safehold Properties" 
-              className="h-12 w-auto object-contain mb-4 max-w-none"
+              className="h-10 w-auto object-contain mb-4 max-w-none"
             />
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted partner for premium real estate investments across Nigeria and beyond.
