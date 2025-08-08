@@ -146,16 +146,16 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
               <Card className="overflow-hidden">
-                <div className="h-96 bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <MapPin className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-slate-600 mb-2">Interactive Map</h3>
-                    <p className="text-slate-500">Peninsula Gardens Estate, Sangotedo, Ajah, Lekki</p>
-                    <p className="text-sm text-slate-400 mt-2">
-                      Map integration available with Google Maps API
-                    </p>
-                  </div>
-                </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2!2d3.62!3d6.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf6e2cdfbe75b%3A0x8cb86ebf7f8b9071!2sSangotedo%2C%20Ajah%20106104%2C%20Lagos!5e0!3m2!1sen!2sng!4v1703123456789"
+                  width="100%"
+                  height="384"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Safehold Properties Office Location"
+                />
               </Card>
             </div>
 

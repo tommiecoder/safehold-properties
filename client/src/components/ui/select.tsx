@@ -81,6 +81,7 @@ const SelectContent = React.forwardRef<
         className
       )}
       position={position}
+      aria-label="Select options"
       {...props}
     >
       <SelectScrollUpButton />
