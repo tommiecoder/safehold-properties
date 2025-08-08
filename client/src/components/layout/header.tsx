@@ -25,12 +25,15 @@ export default function Header() {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center space-x-3">
             <img 
-              src="/images/safehold-full-logo.png" 
-              alt="Safehold Properties" 
-              className="h-16 w-auto object-contain"
+              src="/images/safehold-logo.png" 
+              alt="Safehold Properties Logo" 
+              className="h-10 w-auto"
             />
+            <div className="text-2xl font-dm-serif font-bold text-rich-black">
+              Safehold <span className="text-primary-orange">Properties</span>
+            </div>
           </Link>
 
           <nav className="hidden md:flex space-x-8">
