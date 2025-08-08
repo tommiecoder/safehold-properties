@@ -29,7 +29,7 @@ export default function Header() {
             <img 
               src="/images/safehold-full-logo.png" 
               alt="Safehold Properties" 
-              className="h-12 w-auto"
+              className="h-14 w-auto object-contain max-w-none"
             />
           </Link>
 

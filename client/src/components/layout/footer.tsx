@@ -10,7 +10,7 @@ export default function Footer() {
             <img 
               src="/images/safehold-full-logo.png" 
               alt="Safehold Properties" 
-              className="h-10 w-auto mb-4"
+              className="h-10 w-auto object-contain mb-4 max-w-none"
             />
             <p className="text-white/80 mb-6 leading-relaxed">
               Your trusted partner for premium real estate investments across Nigeria and beyond.
