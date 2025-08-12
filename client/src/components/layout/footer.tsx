@@ -10,7 +10,7 @@ export default function Footer() {
             <img 
               src="/images/safehold-new-logo.png" 
               alt="Safehold Properties" 
-              className="h-10 w-auto object-contain mb-4 max-w-none"
+              className="h-16 w-auto object-contain mb-4 max-w-none"
               onError={(e) => {
                 console.log('Footer logo failed to load, using fallback');
                 e.currentTarget.src = '/images/safehold-logo.png';
