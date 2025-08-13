@@ -29,7 +29,7 @@ export default function Header() {
             <img
               src="/images/safehold-new-logo.png"
               alt="Safehold Properties"
-              className="h-16 w-auto object-contain max-w-none"
+              className="h-14 w-auto object-contain max-w-none"
               onError={(e) => {
                 console.log("Logo failed to load, using fallback");
                 e.currentTarget.src = "/images/safehold-logo.png";
@@ -85,7 +85,7 @@ export default function Header() {
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="md:hidden">
                 <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-8 w-8" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
