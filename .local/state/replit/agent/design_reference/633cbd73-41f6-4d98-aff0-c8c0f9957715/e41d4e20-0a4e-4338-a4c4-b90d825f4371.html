@@ -1,0 +1,841 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safehold Properties - Premium Real Estate in Nigeria & South Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-orange': '#FFA500',
+                        'off-white': '#FAFAFA',
+                        'rich-black': '#121212',
+                        'silver-gray': '#DADADA',
+                        'slate-blue': '#3B4C63'
+                    },
+                    fontFamily: {
+                        'serif': ['DM Serif Display', 'serif'],
+                        'sans': ['Lato', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="font-sans text-rich-black bg-off-white">
+
+    <!-- Navigation -->
+    <!-- @COMPONENT: Navigation [responsive, sticky] -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-2xl font-serif font-bold text-slate-blue">
+                        <i class="fas fa-building mr-2"></i>
+                        Safehold Properties
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-rich-black hover:text-primary-orange transition duration-300">Home</a>
+                    <a href="#properties" class="text-rich-black hover:text-primary-orange transition duration-300">Properties</a>
+                    <a href="#about" class="text-rich-black hover:text-primary-orange transition duration-300">About</a>
+                    <a href="#team" class="text-rich-black hover:text-primary-orange transition duration-300">Team</a>
+                    <a href="#contact" class="text-rich-black hover:text-primary-orange transition duration-300">Contact</a>
+                    <button data-event="click:openWhatsApp" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300">
+                        <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button data-event="click:toggleMobileMenu" class="text-rich-black">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <!-- @STATE: mobileMenuOpen:boolean = false -->
+            <div data-bind="mobileMenuOpen" class="md:hidden bg-white border-t border-silver-gray" style="display: none;">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-rich-black hover:text-primary-orange">Home</a>
+                    <a href="#properties" class="block px-3 py-2 text-rich-black hover:text-primary-orange">Properties</a>
+                    <a href="#about" class="block px-3 py-2 text-rich-black hover:text-primary-orange">About</a>
+                    <a href="#team" class="block px-3 py-2 text-rich-black hover:text-primary-orange">Team</a>
+                    <a href="#contact" class="block px-3 py-2 text-rich-black hover:text-primary-orange">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navigation -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: Hero [video background, lead capture] -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white">
+        <!-- Modern luxury high-rise buildings in Lagos Nigeria with glass facades -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-serif mb-6 leading-tight">
+                Your Gateway to <span class="text-primary-orange">Premium</span> Real Estate
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto leading-relaxed">
+                Discover exceptional residential and commercial properties across Lagos, Abeokuta, Asaba, Abuja, and South Africa with Nigeria's trusted investment advisor.
+            </p>
+            
+            <!-- Lead Capture Form -->
+            <div class="bg-white bg-opacity-95 rounded-2xl p-8 max-w-lg mx-auto shadow-2xl">
+                <h3 class="text-slate-blue text-2xl font-serif mb-6">Start Your Property Journey</h3>
+                <form data-event="submit:handleLeadCapture" class="space-y-4">
+                    <input type="text" placeholder="Full Name" data-bind="leadForm.name" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange text-rich-black">
+                    <input type="email" placeholder="Email Address" data-bind="leadForm.email" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange text-rich-black">
+                    <input type="tel" placeholder="Phone Number" data-bind="leadForm.phone" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange text-rich-black">
+                    <select data-bind="leadForm.interest" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange text-rich-black">
+                        <option>I'm interested in...</option>
+                        <option>Buying a home</option>
+                        <option>Investment properties</option>
+                        <option>Commercial real estate</option>
+                        <option>Land acquisition</option>
+                    </select>
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary-orange to-yellow-500 text-white py-3 rounded-lg font-bold text-lg hover:shadow-lg transition duration-300 transform hover:scale-105">
+                        Get Expert Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero -->
+
+    <!-- Featured Properties -->
+    <!-- @COMPONENT: FeaturedProperties [carousel, property cards] -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-6">Featured Properties</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover our handpicked selection of premium properties across Nigeria and South Africa</p>
+            </div>
+
+            <!-- @MAP: featuredProperties.map(property => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Luxury modern apartment building in Lagos with swimming pool -->
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Luxury apartment in Lagos" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-primary-orange text-white px-3 py-1 rounded-full text-sm font-bold">Featured</span>
+                            <span class="text-slate-blue font-bold text-lg" data-bind="property.price">₦85M</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="property.title">Luxury 3BR Apartment</h3>
+                        <p class="text-gray-600 mb-4" data-bind="property.location"><i class="fas fa-map-marker-alt mr-2"></i>Victoria Island, Lagos</p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-bed mr-1"></i>3 Beds</span>
+                            <span><i class="fas fa-bath mr-1"></i>3 Baths</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>180 sqm</span>
+                        </div>
+                        <button data-event="click:viewProperty" class="w-full bg-slate-blue text-white py-3 rounded-lg hover:bg-opacity-90 transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Modern commercial office building in Abuja Nigeria -->
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Commercial building in Abuja" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-slate-blue text-white px-3 py-1 rounded-full text-sm font-bold">Commercial</span>
+                            <span class="text-slate-blue font-bold text-lg" data-bind="property.price">₦250M</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="property.title">Premium Office Complex</h3>
+                        <p class="text-gray-600 mb-4" data-bind="property.location"><i class="fas fa-map-marker-alt mr-2"></i>Central Business District, Abuja</p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-building mr-1"></i>15 Floors</span>
+                            <span><i class="fas fa-car mr-1"></i>200 Parking</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>5000 sqm</span>
+                        </div>
+                        <button data-event="click:viewProperty" class="w-full bg-slate-blue text-white py-3 rounded-lg hover:bg-opacity-90 transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Property Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Luxury residential estate with green landscaping in South Africa -->
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Luxury estate in South Africa" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">International</span>
+                            <span class="text-slate-blue font-bold text-lg" data-bind="property.price">R4.5M</span>
+                        </div>
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="property.title">Executive Villa</h3>
+                        <p class="text-gray-600 mb-4" data-bind="property.location"><i class="fas fa-map-marker-alt mr-2"></i>Sandton, South Africa</p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-bed mr-1"></i>4 Beds</span>
+                            <span><i class="fas fa-bath mr-1"></i>4 Baths</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>350 sqm</span>
+                        </div>
+                        <button data-event="click:viewProperty" class="w-full bg-slate-blue text-white py-3 rounded-lg hover:bg-opacity-90 transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+
+            <div class="text-center mt-12">
+                <button data-event="click:viewAllProperties" class="bg-gradient-to-r from-primary-orange to-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-bold hover:shadow-lg transition duration-300 transform hover:scale-105">
+                    View All Properties
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: FeaturedProperties -->
+
+    <!-- Property Search -->
+    <!-- @COMPONENT: PropertySearch [advanced filters] -->
+    <section id="properties" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-6">Find Your Perfect Property</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Use our advanced search to discover properties that match your exact requirements</p>
+            </div>
+
+            <!-- Search Filters -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <form data-event="submit:handlePropertySearch" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-slate-blue mb-2">Property Type</label>
+                        <select data-bind="searchFilters.propertyType" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <option>All Types</option>
+                            <option>Apartment</option>
+                            <option>House</option>
+                            <option>Commercial</option>
+                            <option>Land</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-slate-blue mb-2">Location</label>
+                        <select data-bind="searchFilters.location" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <option>All Locations</option>
+                            <option>Lagos</option>
+                            <option>Abeokuta</option>
+                            <option>Asaba</option>
+                            <option>Abuja</option>
+                            <option>South Africa</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-blue mb-2">Price Range</label>
+                        <select data-bind="searchFilters.priceRange" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <option>Any Price</option>
+                            <option>Under ₦50M</option>
+                            <option>₦50M - ₦100M</option>
+                            <option>₦100M - ₦200M</option>
+                            <option>Over ₦200M</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-bold text-slate-blue mb-2">Bedrooms</label>
+                        <select data-bind="searchFilters.bedrooms" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <option>Any</option>
+                            <option>1+</option>
+                            <option>2+</option>
+                            <option>3+</option>
+                            <option>4+</option>
+                            <option>5+</option>
+                        </select>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center mt-6">
+                        <button type="submit" class="bg-gradient-to-r from-primary-orange to-yellow-500 text-white px-12 py-4 rounded-lg text-lg font-bold hover:shadow-lg transition duration-300 transform hover:scale-105">
+                            <i class="fas fa-search mr-2"></i>Search Properties
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-serif text-primary-orange mb-2" data-bind="stats.totalProperties">500+</div>
+                    <div class="text-slate-blue font-bold">Properties Listed</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-serif text-primary-orange mb-2" data-bind="stats.happyClients">200+</div>
+                    <div class="text-slate-blue font-bold">Happy Clients</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-serif text-primary-orange mb-2" data-bind="stats.yearsExperience">10+</div>
+                    <div class="text-slate-blue font-bold">Years Experience</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-serif text-primary-orange mb-2" data-bind="stats.cities">5</div>
+                    <div class="text-slate-blue font-bold">Cities Covered</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: PropertySearch -->
+
+    <!-- About Section -->
+    <!-- @COMPONENT: About [founder profile, company mission] -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-8">About Safehold Properties</h2>
+                    <div class="space-y-6 text-lg text-gray-700 leading-relaxed">
+                        <p>
+                            Founded by a seasoned investment advisor with over a decade of experience in Nigerian real estate, Safehold Properties has become the trusted partner for first-time homebuyers and high-net-worth individuals seeking premium properties.
+                        </p>
+                        <p>
+                            Our mission is to demystify real estate investment and guide our clients through every step of their property journey, from initial consultation to final ownership. We believe that real estate is not just about buildings—it's about creating foundations for generational wealth.
+                        </p>
+                        <p>
+                            With a portfolio spanning across Lagos, Abeokuta, Asaba, Abuja, and now South Africa, we've successfully facilitated over ₦50 billion in property transactions, helping our clients build substantial real estate portfolios.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-blue">Trusted Expertise</h4>
+                                <p class="text-gray-600">Licensed investment advisor with proven track record</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                <i class="fas fa-handshake text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-blue">Client-Centric Approach</h4>
+                                <p class="text-gray-600">Personalized service tailored to your investment goals</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                <i class="fas fa-globe-africa text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-blue">International Reach</h4>
+                                <p class="text-gray-600">Expanding opportunities across Nigeria and South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <!-- Professional African business executive in modern office setting -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" alt="Safehold Properties Founder" class="rounded-2xl shadow-2xl w-full">
+                    <div class="absolute bottom-6 left-6 right-6 bg-white bg-opacity-95 rounded-xl p-6">
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="founder.name">Adebayo Ogundimu</h3>
+                        <p class="text-gray-600 mb-2" data-bind="founder.title">Founder & Lead Investment Advisor</p>
+                        <p class="text-sm text-gray-500">"Building wealth through strategic real estate investments"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About -->
+
+    <!-- Team Section -->
+    <!-- @COMPONENT: Team [partners, collaborators] -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-6">Our Expert Team</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Meet the professionals who make your real estate dreams a reality</p>
+            </div>
+
+            <!-- @MAP: teamMembers.map(member => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Professional African businesswoman in corporate attire -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" alt="Property Manager" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="member.name">Folake Adeyemi</h3>
+                        <p class="text-primary-orange font-bold mb-3" data-bind="member.title">Senior Property Manager</p>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="member.description">Specializes in luxury residential properties across Lagos and Abuja with 8+ years experience.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Professional African businessman in suit and tie -->
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" alt="Investment Consultant" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="member.name">Kemi Oluwaseun</h3>
+                        <p class="text-primary-orange font-bold mb-3" data-bind="member.title">Investment Consultant</p>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="member.description">Expert in commercial real estate and investment strategy with focus on high-yield properties.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:scale-105">
+                    <!-- Professional African businesswoman with confident expression -->
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=600" alt="International Relations Manager" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-serif text-slate-blue mb-2" data-bind="member.name">Thandiwe Mbeki</h3>
+                        <p class="text-primary-orange font-bold mb-3" data-bind="member.title">International Relations Manager</p>
+                        <p class="text-gray-600 text-sm mb-4" data-bind="member.description">Leads our South African expansion and cross-border investment opportunities.</p>
+                        <div class="flex justify-center space-x-3">
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-slate-blue hover:text-primary-orange transition duration-300">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+
+            <!-- Partner Logos -->
+            <div class="mt-20 border-t border-silver-gray pt-16">
+                <h3 class="text-2xl font-serif text-slate-blue text-center mb-12">Our Trusted Partners</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-60">
+                    <div class="text-center">
+                        <div class="text-3xl text-slate-blue mb-2"><i class="fas fa-building"></i></div>
+                        <div class="text-sm font-bold">Nigerian Real Estate Association</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl text-slate-blue mb-2"><i class="fas fa-university"></i></div>
+                        <div class="text-sm font-bold">First Bank of Nigeria</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl text-slate-blue mb-2"><i class="fas fa-handshake"></i></div>
+                        <div class="text-sm font-bold">Property Development Association</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl text-slate-blue mb-2"><i class="fas fa-globe-africa"></i></div>
+                        <div class="text-sm font-bold">South African Real Estate Board</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Team -->
+
+    <!-- Testimonials -->
+    <!-- @COMPONENT: Testimonials [client quotes, carousel] -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-6">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real stories from clients who trusted us with their property investments</p>
+            </div>
+
+            <!-- @MAP: testimonials.map(testimonial => ( -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <!-- Happy African businessman in professional setting -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-slate-blue" data-bind="testimonial.name">Dr. Emeka Okafor</h4>
+                            <p class="text-sm text-gray-600" data-bind="testimonial.title">Surgeon, Lagos</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed" data-bind="testimonial.quote">
+                        "Safehold Properties helped me purchase my first investment property in Victoria Island. Their expertise in market analysis and negotiation saved me over ₦15 million. Highly recommended!"
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <!-- Professional African businesswoman smiling -->
+                        <img src="https://pixabay.com/get/g9ded4f901c2fd06bf3f938fc5f5184cccb6c9c0478b6ecced805086df68a9bf0667da63d29764b1003fe93d3599da467484553a6f4e3a2963a197e1e3eaa420c_1280.jpg" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-slate-blue" data-bind="testimonial.name">Mrs. Aisha Mohammed</h4>
+                            <p class="text-sm text-gray-600" data-bind="testimonial.title">Business Owner, Abuja</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed" data-bind="testimonial.quote">
+                        "The team's professionalism and market knowledge is unmatched. They guided me through purchasing a commercial property that has already appreciated by 30% in 18 months."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition duration-300">
+                    <div class="flex items-center mb-6">
+                        <!-- Happy middle-aged African couple -->
+                        <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&h=150" alt="Client testimonial" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-slate-blue" data-bind="testimonial.name">Mr. & Mrs. Johnson</h4>
+                            <p class="text-sm text-gray-600" data-bind="testimonial.title">Retirees, South Africa</p>
+                        </div>
+                    </div>
+                    <div class="text-yellow-500 mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 italic leading-relaxed" data-bind="testimonial.quote">
+                        "Moving from Nigeria to South Africa, Safehold made our transition seamless. They found us the perfect retirement home in Johannesburg within our budget and timeline."
+                    </p>
+                </div>
+            </div>
+            <!-- @END_MAP )) -->
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Testimonials -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: Contact [form, map, multiple contact methods] -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-blue mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ready to start your property investment journey? We're here to help you every step of the way.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="text-2xl font-serif text-slate-blue mb-6">Send Us a Message</h3>
+                    <form data-event="submit:handleContactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="First Name" data-bind="contactForm.firstName" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <input type="text" placeholder="Last Name" data-bind="contactForm.lastName" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                        </div>
+                        <input type="email" placeholder="Email Address" data-bind="contactForm.email" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                        <input type="tel" placeholder="Phone Number" data-bind="contactForm.phone" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                        <select data-bind="contactForm.interest" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange">
+                            <option>How can we help you?</option>
+                            <option>Buy a property</option>
+                            <option>Sell a property</option>
+                            <option>Investment consultation</option>
+                            <option>Property management</option>
+                            <option>Market analysis</option>
+                        </select>
+                        <textarea placeholder="Tell us more about your requirements..." data-bind="contactForm.message" rows="4" class="w-full px-4 py-3 border border-silver-gray rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange resize-none"></textarea>
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary-orange to-yellow-500 text-white py-4 rounded-lg text-lg font-bold hover:shadow-lg transition duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                        <h3 class="text-2xl font-serif text-slate-blue mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-blue">Lagos Office</h4>
+                                    <p class="text-gray-600">Plot 123, Victoria Island, Lagos State, Nigeria</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                    <i class="fas fa-phone text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-blue">Phone</h4>
+                                    <p class="text-gray-600">+234 (0) 800 123 4567</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-primary-orange rounded-full flex items-center justify-center">
+                                    <i class="fas fa-envelope text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-blue">Email</h4>
+                                    <p class="text-gray-600">info@safeholdproperties.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <i class="fab fa-whatsapp text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-slate-blue">WhatsApp</h4>
+                                    <p class="text-gray-600">+234 (0) 900 123 4567</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="bg-white rounded-2xl shadow-lg p-8">
+                        <h3 class="text-2xl font-serif text-slate-blue mb-6">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" data-event="click:openInstagram" class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition duration-300 transform hover:scale-110">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" data-event="click:openWhatsApp" class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition duration-300 transform hover:scale-110">
+                                <i class="fab fa-whatsapp text-xl"></i>
+                            </a>
+                            <a href="#" data-event="click:openLinkedIn" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:shadow-lg transition duration-300 transform hover:scale-110">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" data-event="click:openFacebook" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:shadow-lg transition duration-300 transform hover:scale-110">
+                                <i class="fab fa-facebook text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Embedded Map -->
+            <div class="mt-16">
+                <!-- @FUNCTIONALITY: Embed Google Maps showing Lagos office location -->
+                <div class="bg-gray-300 rounded-2xl h-96 flex items-center justify-center shadow-lg">
+                    <div class="text-center text-gray-600">
+                        <i class="fas fa-map-marked-alt text-6xl mb-4"></i>
+                        <p class="text-xl font-bold">Interactive Map</p>
+                        <p>Google Maps integration showing our Lagos office location</p>
+                        <p class="text-sm mt-2">// TODO: Implement Google Maps API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Contact -->
+
+    <!-- Footer -->
+    <!-- @COMPONENT: Footer [links, social media, newsletter] -->
+    <footer class="bg-slate-blue text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="text-2xl font-serif font-bold mb-6 text-primary-orange">
+                        <i class="fas fa-building mr-2"></i>
+                        Safehold Properties
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Your trusted partner for premium real estate investments across Nigeria and South Africa. Building wealth through strategic property investments.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-primary-orange transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary-orange transition duration-300">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary-orange transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-primary-orange transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-serif mb-6 text-primary-orange">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#properties" class="text-gray-300 hover:text-white transition duration-300">Properties</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#team" class="text-gray-300 hover:text-white transition duration-300">Our Team</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-serif mb-6 text-primary-orange">Our Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Property Sales</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Investment Consulting</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Property Management</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Market Analysis</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">International Properties</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-serif mb-6 text-primary-orange">Stay Updated</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to receive market insights and new property listings.</p>
+                    <form data-event="submit:handleNewsletterSignup" class="space-y-3">
+                        <input type="email" placeholder="Your email address" data-bind="newsletter.email" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-orange text-white placeholder-gray-400">
+                        <button type="submit" class="w-full bg-gradient-to-r from-primary-orange to-yellow-500 text-white py-3 rounded-lg font-bold hover:shadow-lg transition duration-300 transform hover:scale-105">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-600 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-300 text-sm">
+                        © 2024 Safehold Properties. All rights reserved.
+                    </div>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-300 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-300 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                        <a href="#" class="text-gray-300 hover:text-white text-sm transition duration-300">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- WhatsApp Chat Widget -->
+    <!-- @COMPONENT: WhatsAppWidget [floating chat button] -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button data-event="click:openWhatsAppChat" class="bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl hover:bg-green-600 transition duration-300 transform hover:scale-110 flex items-center justify-center">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </button>
+    </div>
+    <!-- @END_COMPONENT: WhatsAppWidget -->
+
+    <script>
+        // Basic JavaScript for enhanced interactivity
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            const mobileMenu = document.querySelector('[data-bind="mobileMenuOpen"]');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    const isHidden = mobileMenu.style.display === 'none' || !mobileMenu.style.display;
+                    mobileMenu.style.display = isHidden ? 'block' : 'none';
+                });
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // WhatsApp integration
+            document.querySelectorAll('[data-event*="WhatsApp"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    const phoneNumber = '+2349001234567';
+                    const message = 'Hello! I am interested in learning more about your real estate services.';
+                    const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                });
+            });
+
+            // Form submissions (placeholder functionality)
+            document.querySelectorAll('form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement actual form submission logic
+                    alert('Thank you for your interest! We will contact you shortly.');
+                });
+            });
+
+            // Property view buttons
+            document.querySelectorAll('[data-event="click:viewProperty"]').forEach(button => {
+                button.addEventListener('click', function() {
+                    // TODO: Implement property detail view
+                    alert('Property details page would open here');
+                });
+            });
+
+            // Search functionality
+            const searchForm = document.querySelector('[data-event="submit:handlePropertySearch"]');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement property search functionality
+                    alert('Property search results would be displayed here');
+                });
+            }
+
+            // Social media links
+            document.querySelectorAll('[data-event*="open"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('data-event').includes('Instagram')) {
+                        window.open('https://instagram.com/safeholdproperties', '_blank');
+                    } else if (this.getAttribute('data-event').includes('LinkedIn')) {
+                        window.open('https://linkedin.com/company/safeholdproperties', '_blank');
+                    } else if (this.getAttribute('data-event').includes('Facebook')) {
+                        window.open('https://facebook.com/safeholdproperties', '_blank');
+                    }
+                });
+            });
+
+            // Newsletter signup
+            const newsletterForm = document.querySelector('[data-event="submit:handleNewsletterSignup"]');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // TODO: Implement newsletter subscription
+                    alert('Thank you for subscribing to our newsletter!');
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
