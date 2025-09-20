@@ -8,6 +8,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
+console.log('SMTP_USER:', process.env.SMTP_USER);
+console.log('SMTP_PASS set?', !!process.env.SMTP_PASS);
+
+
 // Email configuration - Using SMTP service
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || "smtp.gmail.com",
