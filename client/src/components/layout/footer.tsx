@@ -184,7 +184,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/60 mb-4 md:mb-0">
-              © 2025 Safehold Properties. All rights reserved.
+              © 2026 Safehold Properties. All rights reserved.
             </p>
             <div className="flex space-x-6 text-white/60">
               <a
