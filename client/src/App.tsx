@@ -12,6 +12,8 @@ import Properties from "@/pages/properties";
 import PropertyDetail from "@/pages/property-detail";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
+import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
 import NotFound from "@/pages/not-found";
 
 function ScrollToTop() {
@@ -33,6 +35,8 @@ function Router() {
         <Route path="/properties" component={Properties} />
         <Route path="/properties/:id" component={PropertyDetail} />
         <Route path="/about" component={About} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
       </Switch>

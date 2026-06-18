@@ -10,10 +10,26 @@ import {
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
+function generateSlug(title: string, existingSlugs: Set<string>): string {
+  let base = title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+
+  if (!existingSlugs.has(base)) return base;
+
+  let i = 2;
+  while (existingSlugs.has(`${base}-${i}`)) i++;
+  return `${base}-${i}`;
+}
+
 export interface IStorage {
   // Properties
   getProperties(): Promise<Property[]>;
   getProperty(id: string): Promise<Property | undefined>;
+  getPropertyBySlug(slug: string): Promise<Property | undefined>;
   getFeaturedProperties(): Promise<Property[]>;
   searchProperties(filters: {
     propertyType?: string;
@@ -491,7 +507,8 @@ export class MemStorage implements IStorage {
       {
         name: "Satisfied Client",
         role: "Property Investor",
-        content: "/attached_assets/IMG_8880.mp4",
+        content: "Safehold Properties made my investment journey seamless. They found me a stunning duplex in Ajah that exceeded all my expectations. Professional, trustworthy, and truly knowledgeable about the Lagos market.",
+        video: "/attached_assets/IMG_8880.mp4",
         rating: 5,
         featured: true,
         image:
@@ -500,11 +517,39 @@ export class MemStorage implements IStorage {
       {
         name: "Happy Customer",
         role: "Real Estate Client",
-        content: "/attached_assets/IMG_8811.mp4",
+        content: "I cannot recommend Safehold Properties enough. They guided me through every step of purchasing my apartment in Lekki — from property search to documentation. Outstanding service!",
+        video: "/attached_assets/IMG_8811.mp4",
         rating: 5,
         featured: true,
         image:
           "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      },
+      {
+        name: "Adaeze Okonkwo",
+        role: "Homebuyer, Ajah Lagos",
+        content: "As a first-time buyer, I was nervous about navigating the Lagos property market. Safehold Properties held my hand through the entire process and helped me secure a beautiful 3-bedroom in Ajah within my budget. I'm now a proud homeowner!",
+        rating: 5,
+        featured: true,
+        image:
+          "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      },
+      {
+        name: "Emeka Eze",
+        role: "Property Investor, Lekki",
+        content: "I've worked with several real estate agents in Lagos over the years, but Safehold Properties stands apart. Their market insight for Lekki and Ajah is unmatched. My investment has already appreciated significantly.",
+        rating: 5,
+        featured: true,
+        image:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
+      },
+      {
+        name: "Chidinma Obi",
+        role: "Diaspora Investor",
+        content: "Living abroad, I needed agents I could truly trust to handle my property purchase in Ajah. Safehold Properties communicated clearly, sent regular updates, and delivered exactly what they promised. Exceptional integrity.",
+        rating: 5,
+        featured: true,
+        image:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b169?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
       },
     ];
 
@@ -519,6 +564,10 @@ export class MemStorage implements IStorage {
 
   async getProperty(id: string): Promise<Property | undefined> {
     return this.properties.get(id);
+  }
+
+  async getPropertyBySlug(slug: string): Promise<Property | undefined> {
+    return Array.from(this.properties.values()).find((p) => p.slug === slug);
   }
 
   async getFeaturedProperties(): Promise<Property[]> {
@@ -558,9 +607,18 @@ export class MemStorage implements IStorage {
 
   async createProperty(insertProperty: InsertProperty): Promise<Property> {
     const id = randomUUID();
+    const existingSlugs = new Set(
+      Array.from(this.properties.values()).map((p) => p.slug),
+    );
+    const slug =
+      insertProperty.slug && insertProperty.slug !== ""
+        ? insertProperty.slug
+        : generateSlug(insertProperty.title, existingSlugs);
+
     const property: Property = {
       id,
       title: insertProperty.title,
+      slug,
       description: insertProperty.description,
       price: insertProperty.price,
       location: insertProperty.location,
@@ -643,6 +701,7 @@ export class MemStorage implements IStorage {
       role: insertTestimonial.role,
       content: insertTestimonial.content,
       image: insertTestimonial.image,
+      video: insertTestimonial.video ?? null,
       rating: insertTestimonial.rating ?? null,
       featured: insertTestimonial.featured ?? null,
     };

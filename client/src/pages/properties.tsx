@@ -33,7 +33,7 @@ export default function Properties() {
   };
 
   const handleViewDetails = (property: Property) => {
-    setLocation(`/properties/${property.id}`);
+    setLocation(`/properties/${property.slug || property.id}`);
   };
 
   return (

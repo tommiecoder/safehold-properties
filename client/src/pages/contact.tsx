@@ -222,7 +222,7 @@ export default function Contact() {
               <CardContent className="p-6">
                 <h3 className="font-semibold text-rich-black mb-3">What areas do you cover?</h3>
                 <p className="text-slate-blue text-sm">
-                  We specialize in premium properties across Lagos, Abuja, Abeokuta, Asaba, and beyond for our international clients.
+                  We specialise in premium properties across Ajah, Lekki, Sangotedo and the wider Lagos area. We also serve diaspora and international clients investing in Lagos real estate.
                 </p>
               </CardContent>
             </Card>

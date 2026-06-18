@@ -6,10 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import PropertyCard from "@/components/property-card";
 import SearchFilters from "@/components/search-filters";
 import LeadCaptureForm from "@/components/lead-capture-form";
+import { useSEO } from "@/hooks/use-seo";
 import type { Property, Testimonial } from "@shared/schema";
 import {
   ArrowRight,
   Star,
+  Quote,
   Home as HomeIcon,
   Building,
   Users,
@@ -17,6 +19,14 @@ import {
 
 export default function Home() {
   const [, setLocation] = useLocation();
+
+  useSEO({
+    title: "Real Estate Agents in Ajah Lekki | Safehold Properties",
+    description:
+      "Safehold Properties helps investors and homebuyers find premium properties in Ajah and Lekki, Lagos. Trusted real estate advisory and property sales.",
+    canonical: `${window.location.origin}/`,
+  });
+
   const { data: featuredProperties, isLoading: propertiesLoading } = useQuery<
     Property[]
   >({
@@ -30,7 +40,7 @@ export default function Home() {
   });
 
   const handleViewDetails = (property: Property) => {
-    setLocation(`/properties/${property.id}`);
+    setLocation(`/properties/${property.slug || property.id}`);
   };
 
   const stats = [
@@ -57,16 +67,16 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h1 className="font-dm-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight animate-slide-up">
-                Your Gateway to <span className="text-gradient">Premium</span>{" "}
-                Nigerian Real Estate
+                Trusted Real Estate Agents in{" "}
+                <span className="text-gradient">Ajah & Lekki</span>
               </h1>
               <p
                 className="text-xl md:text-2xl text-white/90 mb-8 font-light leading-relaxed animate-slide-up"
                 style={{ animationDelay: "0.2s" }}
               >
-                Expert investment guidance for discerning buyers in Lagos,
-                Abuja, Abeokuta, Asaba, and beyond. Build generational wealth
-                through strategic property investments.
+                Find your dream home or investment property in Ajah, Lekki and
+                Sangotedo, Lagos. Expert real estate agents guiding discerning
+                buyers through every step of the journey.
               </p>
               <div
                 className="flex flex-col sm:flex-row gap-4 animate-slide-up"
@@ -104,11 +114,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
-              Featured Investment Opportunities
+              Premier Properties in Ajah & Lekki, Lagos
             </h2>
             <p className="text-xl text-slate-blue max-w-3xl mx-auto">
-              Carefully curated properties that offer exceptional returns and
-              long-term value appreciation
+              Carefully curated properties in Ajah, Lekki and Sangotedo that offer
+              exceptional returns and long-term value appreciation
             </p>
           </div>
 
@@ -203,11 +213,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
-              Our Key Services
+              Expert Real Estate Services in Lagos
             </h2>
             <p className="text-xl text-slate-blue">
               Comprehensive real estate solutions tailored to your investment
-              goals
+              goals in Ajah, Lekki and beyond
             </p>
           </div>
 
@@ -323,41 +333,84 @@ export default function Home() {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {testimonials?.map((testimonial) => (
-                <Card key={testimonial.id} className="bg-white hover-lift shadow-luxury">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <div className="font-semibold text-rich-black text-lg">
-                          {testimonial.name}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials?.map((testimonial) =>
+                testimonial.video ? (
+                  // Video testimonial card
+                  <Card
+                    key={testimonial.id}
+                    className="bg-white hover-lift shadow-luxury"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <div>
+                          <div className="font-semibold text-rich-black text-lg">
+                            {testimonial.name}
+                          </div>
+                          <div className="text-slate-blue text-sm">
+                            {testimonial.role}
+                          </div>
                         </div>
-                        <div className="text-slate-blue text-sm">
-                          {testimonial.role}
+                        <div className="flex">
+                          {[...Array(testimonial.rating || 5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 fill-primary-orange text-primary-orange"
+                            />
+                          ))}
                         </div>
                       </div>
-                      <div className="flex">
-                        {[...Array(testimonial.rating || 5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="w-4 h-4 fill-primary-orange text-primary-orange"
-                          />
-                        ))}
+                      <div className="relative rounded-lg overflow-hidden bg-gray-100">
+                        <video
+                          src={testimonial.video}
+                          controls
+                          className="w-full h-56 object-cover"
+                          preload="metadata"
+                        >
+                          Your browser does not support the video tag.
+                        </video>
                       </div>
-                    </div>
-                    <div className="relative rounded-lg overflow-hidden bg-gray-100">
-                      <video
-                        src={testimonial.content}
-                        controls
-                        className="w-full h-64 object-cover"
-                        preload="metadata"
-                      >
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                      {testimonial.content && (
+                        <p className="text-slate-blue text-sm mt-3 leading-relaxed line-clamp-2">
+                          {testimonial.content}
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                ) : (
+                  // Text testimonial card
+                  <Card
+                    key={testimonial.id}
+                    className="bg-white hover-lift shadow-luxury relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-orange-gradient opacity-10 rounded-bl-full" />
+                    <CardContent className="p-6">
+                      <Quote className="w-8 h-8 text-primary-orange mb-4 opacity-60" />
+                      <p className="text-slate-blue leading-relaxed mb-6 text-sm md:text-base">
+                        {testimonial.content}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="font-semibold text-rich-black">
+                            {testimonial.name}
+                          </div>
+                          <div className="text-slate-blue text-sm">
+                            {testimonial.role}
+                          </div>
+                        </div>
+                        <div className="flex">
+                          {[...Array(testimonial.rating || 5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className="w-4 h-4 fill-primary-orange text-primary-orange"
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )
+              )}
             </div>
           )}
         </div>

@@ -1,34 +1,66 @@
-import { useParams, Link } from "wouter";
+import { useEffect } from "react";
+import { useParams, Link, useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowLeft, MapPin, Bed, Bath, Square, Calendar, Shield, Star } from "lucide-react";
+import { ArrowLeft, MapPin, Bed, Bath, Square, Shield, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from "@/lib/constants";
+import { useSEO } from "@/hooks/use-seo";
 import type { Property } from "@shared/schema";
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export default function PropertyDetail() {
   const { id } = useParams();
-  
+  const [, setLocation] = useLocation();
+
+  const isUUID = id ? UUID_REGEX.test(id) : false;
+
   const { data: property, isLoading } = useQuery<Property>({
-    queryKey: ['/api/properties', id],
-    enabled: !!id
+    queryKey: isUUID ? ["/api/properties", id] : ["/api/properties/slug", id],
+    queryFn: async () => {
+      const url = isUUID ? `/api/properties/${id}` : `/api/properties/slug/${id}`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error("Property not found");
+      return res.json();
+    },
+    enabled: !!id,
+  });
+
+  // Redirect UUID-based URLs to slug-based URLs
+  useEffect(() => {
+    if (isUUID && property?.slug) {
+      setLocation(`/properties/${property.slug}`, { replace: true });
+    }
+  }, [isUUID, property?.slug, setLocation]);
+
+  useSEO({
+    title: property
+      ? `${property.title} in ${property.location} | Safehold Properties`
+      : "Property Details | Safehold Properties",
+    description: property
+      ? `${property.title} — ${property.location}. ${property.bedrooms ? `${property.bedrooms} bed, ` : ""}${property.bathrooms ? `${property.bathrooms} bath. ` : ""}Listed at ${new Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN", minimumFractionDigits: 0 }).format(property.price)}.`
+      : undefined,
+    canonical: property?.slug
+      ? `${window.location.origin}/properties/${property.slug}`
+      : undefined,
   });
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-NG', {
-      style: 'currency',
-      currency: 'NGN',
+    return new Intl.NumberFormat("en-NG", {
+      style: "currency",
+      currency: "NGN",
       minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      maximumFractionDigits: 0,
     }).format(price);
   };
 
   const handleWhatsAppInquiry = () => {
     const message = `${WHATSAPP_MESSAGE}. I'm interested in the property: ${property?.title} (${formatPrice(property?.price || 0)})`;
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace('+', '')}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER.replace("+", "")}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   if (isLoading) {
@@ -53,7 +85,9 @@ export default function PropertyDetail() {
       <div className="min-h-screen bg-off-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-rich-black mb-4">Property Not Found</h1>
+            <h1 className="text-2xl font-bold text-rich-black mb-4">
+              Property Not Found
+            </h1>
             <Link href="/properties">
               <Button variant="outline">Back to Properties</Button>
             </Link>
@@ -82,7 +116,10 @@ export default function PropertyDetail() {
             {/* Main Image */}
             <div className="mb-6">
               <img
-                src={property.images?.[0] || "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800"}
+                src={
+                  property.images?.[0] ||
+                  "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800"
+                }
                 alt={property.title}
                 className="w-full h-96 object-cover rounded-xl shadow-luxury"
               />
@@ -108,7 +145,7 @@ export default function PropertyDetail() {
                 <h1 className="font-dm-serif text-3xl text-rich-black mb-4">
                   {property.title}
                 </h1>
-                
+
                 <div className="flex items-center gap-2 text-slate-blue mb-4">
                   <MapPin className="w-5 h-5" />
                   <span className="text-lg">{property.location}</span>
@@ -118,13 +155,17 @@ export default function PropertyDetail() {
                   {property.bedrooms && property.bedrooms > 0 && (
                     <div className="flex items-center gap-2">
                       <Bed className="w-5 h-5 text-slate-blue" />
-                      <span className="text-slate-blue">{property.bedrooms} Bedrooms</span>
+                      <span className="text-slate-blue">
+                        {property.bedrooms} Bedrooms
+                      </span>
                     </div>
                   )}
                   {property.bathrooms && property.bathrooms > 0 && (
                     <div className="flex items-center gap-2">
                       <Bath className="w-5 h-5 text-slate-blue" />
-                      <span className="text-slate-blue">{property.bathrooms} Bathrooms</span>
+                      <span className="text-slate-blue">
+                        {property.bathrooms} Bathrooms
+                      </span>
                     </div>
                   )}
                   {property.area && (
@@ -149,7 +190,9 @@ export default function PropertyDetail() {
 
                 {property.description && (
                   <div className="mb-6">
-                    <h3 className="font-semibold text-rich-black mb-3">Description</h3>
+                    <h3 className="font-semibold text-rich-black mb-3">
+                      Description
+                    </h3>
                     <p className="text-slate-blue leading-relaxed whitespace-pre-line">
                       {property.description}
                     </p>
@@ -158,12 +201,16 @@ export default function PropertyDetail() {
 
                 {property.amenities && property.amenities.length > 0 && (
                   <div>
-                    <h3 className="font-semibold text-rich-black mb-3">Features & Amenities</h3>
+                    <h3 className="font-semibold text-rich-black mb-3">
+                      Features & Amenities
+                    </h3>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {property.amenities.map((amenity, index) => (
                         <div key={index} className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-primary-orange rounded-full"></div>
-                          <span className="text-slate-blue text-sm">{amenity}</span>
+                          <span className="text-slate-blue text-sm">
+                            {amenity}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -196,7 +243,7 @@ export default function PropertyDetail() {
                     >
                       Contact via WhatsApp
                     </Button>
-                    
+
                     <Link href="/contact">
                       <Button variant="outline" className="w-full" size="lg">
                         Schedule Viewing
@@ -209,42 +256,50 @@ export default function PropertyDetail() {
               {/* Property Info */}
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="font-semibold text-rich-black mb-4">Property Information</h3>
-                  
+                  <h3 className="font-semibold text-rich-black mb-4">
+                    Property Information
+                  </h3>
+
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-slate-blue">Property Type</span>
-                      <span className="text-rich-black capitalize">{property.propertyType}</span>
+                      <span className="text-rich-black capitalize">
+                        {property.propertyType}
+                      </span>
                     </div>
-                    
+
                     <div className="flex justify-between">
                       <span className="text-slate-blue">Location</span>
                       <span className="text-rich-black">{property.location}</span>
                     </div>
-                    
+
                     {property.bedrooms && (
                       <div className="flex justify-between">
                         <span className="text-slate-blue">Bedrooms</span>
                         <span className="text-rich-black">{property.bedrooms}</span>
                       </div>
                     )}
-                    
+
                     {property.bathrooms && (
                       <div className="flex justify-between">
                         <span className="text-slate-blue">Bathrooms</span>
-                        <span className="text-rich-black">{property.bathrooms}</span>
+                        <span className="text-rich-black">
+                          {property.bathrooms}
+                        </span>
                       </div>
                     )}
-                    
+
                     {property.area && (
                       <div className="flex justify-between">
                         <span className="text-slate-blue">Area</span>
-                        <span className="text-rich-black">{property.area} sqm</span>
+                        <span className="text-rich-black">
+                          {property.area} sqm
+                        </span>
                       </div>
                     )}
 
                     <Separator className="my-4" />
-                    
+
                     <div className="flex items-center gap-2 text-green-600">
                       <Shield className="w-4 h-4" />
                       <span className="text-sm">Verified Property</span>
