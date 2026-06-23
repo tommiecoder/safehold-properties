@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { COMPANY_INFO } from "@/lib/constants";
 
 const MAP_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.616076!2d3.6046!3d6.4355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf5c8e8fb3a3b%3A0x1234!2sPeninsula+Gardens+Estate%2C+Sangotedo%2C+Ajah%2C+Lekki%2C+Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2!2d3.62!3d6.52!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf6e2cdfbe75b%3A0x8cb86ebf7f8b9071!2sSangotedo%2C%20Ajah%20106104%2C%20Lagos!5e0!3m2!1sen!2sng!4v1703123456789";
 
 export default function Footer() {
   return (
