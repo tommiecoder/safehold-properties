@@ -524,33 +524,6 @@ export class MemStorage implements IStorage {
         image:
           "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
       },
-      {
-        name: "Adaeze Okonkwo",
-        role: "Homebuyer, Ajah Lagos",
-        content: "As a first-time buyer, I was nervous about navigating the Lagos property market. Safehold Properties held my hand through the entire process and helped me secure a beautiful 3-bedroom in Ajah within my budget. I'm now a proud homeowner!",
-        rating: 5,
-        featured: true,
-        image:
-          "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-      },
-      {
-        name: "Emeka Eze",
-        role: "Property Investor, Lekki",
-        content: "I've worked with several real estate agents in Lagos over the years, but Safehold Properties stands apart. Their market insight for Lekki and Ajah is unmatched. My investment has already appreciated significantly.",
-        rating: 5,
-        featured: true,
-        image:
-          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-      },
-      {
-        name: "Chidinma Obi",
-        role: "Diaspora Investor",
-        content: "Living abroad, I needed agents I could truly trust to handle my property purchase in Ajah. Safehold Properties communicated clearly, sent regular updates, and delivered exactly what they promised. Exceptional integrity.",
-        rating: 5,
-        featured: true,
-        image:
-          "https://images.unsplash.com/photo-1494790108755-2616b612b169?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=400",
-      },
     ];
 
     sampleTestimonials.forEach((testimonial) => {
