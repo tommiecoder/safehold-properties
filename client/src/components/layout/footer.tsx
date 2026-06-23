@@ -1,6 +1,9 @@
 import { Link } from "wouter";
 import { COMPANY_INFO } from "@/lib/constants";
 
+const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.616076!2d3.6046!3d6.4355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf5c8e8fb3a3b%3A0x1234!2sPeninsula+Gardens+Estate%2C+Sangotedo%2C+Ajah%2C+Lekki%2C+Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng";
+
 export default function Footer() {
   return (
     <footer className="bg-slate-blue text-white py-16">
@@ -102,44 +105,44 @@ export default function Footer() {
             <h3 className="font-dm-serif text-xl mb-4">Locations</h3>
             <ul className="space-y-2 text-white/80">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/properties?location=Ajah"
                   className="hover:text-primary-orange transition-colors"
                 >
-                  Lagos Properties
-                </a>
+                  Ajah Properties
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/properties?location=Lekki"
                   className="hover:text-primary-orange transition-colors"
                 >
-                  Abuja Listings
-                </a>
+                  Lekki Properties
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/properties?location=Sangotedo"
                   className="hover:text-primary-orange transition-colors"
                 >
-                  Abeokuta Investments
-                </a>
+                  Sangotedo Listings
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/properties"
                   className="hover:text-primary-orange transition-colors"
                 >
-                  Asaba Properties
-                </a>
+                  All Lagos Properties
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/blog"
                   className="hover:text-primary-orange transition-colors"
                 >
-                  International
-                </a>
+                  Property Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -179,6 +182,26 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Google Map */}
+        <div className="mb-10">
+          <h3 className="font-dm-serif text-xl mb-4">Find Us</h3>
+          <div className="rounded-xl overflow-hidden opacity-90">
+            <iframe
+              src={MAP_EMBED_URL}
+              width="100%"
+              height="200"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Safehold Properties Office Location"
+            />
+          </div>
+          <p className="text-white/60 text-sm mt-2">
+            1b Lavina Close, Peninsula Gardens Estate, Sangotedo, Ajah, Lekki, Lagos
+          </p>
         </div>
 
         <div className="border-t border-white/20 pt-8">

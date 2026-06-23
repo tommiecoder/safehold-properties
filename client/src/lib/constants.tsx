@@ -1,9 +1,8 @@
 export const LOCATIONS = [
+  "Ajah",
+  "Lekki",
+  "Sangotedo",
   "Lagos",
-  "Abuja",
-  "Abeokuta",
-  "Asaba",
-  "International",
 ] as const;
 
 export const PROPERTY_TYPES = [

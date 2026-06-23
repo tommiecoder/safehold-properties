@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -109,10 +110,12 @@ export default function PropertyCard({ property, onViewDetails }: PropertyCardPr
             {formatPrice(property.price)}
           </span>
           <Button
-            onClick={() => onViewDetails?.(property)}
+            asChild
             className="bg-orange-gradient text-white hover:shadow-orange transition-all duration-300 rounded-lg"
           >
-            View Details
+            <Link href={`/properties/${property.slug || property.id}`}>
+              View Details
+            </Link>
           </Button>
         </div>
       </CardContent>
