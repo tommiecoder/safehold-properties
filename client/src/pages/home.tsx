@@ -3,10 +3,17 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import PropertyCard from "@/components/property-card";
 import SearchFilters from "@/components/search-filters";
 import LeadCaptureForm from "@/components/lead-capture-form";
 import { useSEO } from "@/hooks/use-seo";
+import { blogPosts } from "@/data/blog-posts";
 import type { Property, Testimonial } from "@shared/schema";
 import {
   ArrowRight,
@@ -42,6 +49,29 @@ export default function Home() {
   const handleViewDetails = (property: Property) => {
     setLocation(`/properties/${property.slug || property.id}`);
   };
+
+  const faqs = [
+    {
+      q: "How do I book a property inspection?",
+      a: "Simply contact us via WhatsApp or fill out our inquiry form and our team will schedule a convenient time for you to view the property.",
+    },
+    {
+      q: "Do you help first-time homebuyers?",
+      a: "Absolutely. We guide first-time buyers through every step of the process — from property selection and price negotiation to documentation and final handover.",
+    },
+    {
+      q: "Do you only sell properties in Ajah and Lekki?",
+      a: "We specialise in Ajah, Lekki, and Sangotedo, with select listings across the wider Lagos area. These are the fastest-growing corridors for real estate investment in Lagos.",
+    },
+    {
+      q: "Can I buy properties as an investment?",
+      a: "Yes. Many of our clients are investors. We offer expert advisory on rental yields, capital appreciation, off-plan opportunities, and long-term portfolio strategy.",
+    },
+    {
+      q: "How long does the buying process take?",
+      a: "Typically 4–8 weeks from offer acceptance to completion, depending on documentation, due diligence, and financing requirements.",
+    },
+  ];
 
   const stats = [
     { label: "Happy Clients", value: "75+" },
@@ -87,8 +117,8 @@ export default function Home() {
                   size="lg"
                   className="btn-premium text-white font-semibold text-lg hover-lift rounded-xl"
                 >
-                  <Link href="/properties">
-                    View Properties <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/contact">
+                    Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button
@@ -97,7 +127,7 @@ export default function Home() {
                   size="lg"
                   className="glass-dark border-white/30 text-white hover:bg-white/10 transition-all duration-300 rounded-xl backdrop-blur-sm"
                 >
-                  <Link href="/contact">Schedule Consultation</Link>
+                  <Link href="/properties">View Properties</Link>
                 </Button>
               </div>
             </div>
@@ -244,9 +274,7 @@ export default function Home() {
                   variant="outline"
                   className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg"
                 >
-                  <Link href="/properties?propertyType=residential">
-                    Browse Homes
-                  </Link>
+                  <Link href="/contact">Book a Consultation</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -273,9 +301,7 @@ export default function Home() {
                   variant="outline"
                   className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg"
                 >
-                  <Link href="/properties?propertyType=commercial">
-                    View Commercial
-                  </Link>
+                  <Link href="/contact">Book a Consultation</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -302,7 +328,7 @@ export default function Home() {
                   variant="outline"
                   className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg"
                 >
-                  <Link href="/contact">Schedule Consultation</Link>
+                  <Link href="/contact">Book a Consultation</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -416,6 +442,109 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Preview Section */}
+      <section className="py-20 bg-off-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
+              Real Estate Insights & Tips
+            </h2>
+            <p className="text-xl text-slate-blue max-w-3xl mx-auto">
+              Expert guides and market updates for buyers and investors in Ajah &amp; Lekki
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {blogPosts.slice(0, 3).map((post) => (
+              <Card
+                key={post.slug}
+                className="bg-white hover-lift shadow-luxury overflow-hidden group"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={post.featuredImage}
+                    alt={post.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <CardContent className="p-6">
+                  <p className="text-sm text-primary-orange font-medium mb-2">
+                    {new Date(post.publishDate).toLocaleDateString("en-NG", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <h3 className="font-dm-serif text-xl text-rich-black mb-3 leading-snug">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-blue text-sm leading-relaxed mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="border-primary-orange text-primary-orange hover:bg-primary-orange hover:text-white transition-all duration-300 rounded-lg"
+                  >
+                    <Link href={`/blog/${post.slug}`}>Learn More</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              size="lg"
+              className="btn-premium text-white font-semibold text-lg hover-lift rounded-xl"
+            >
+              <Link href="/blog">
+                View All Articles <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-dm-serif text-4xl md:text-5xl text-rich-black mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-xl text-slate-blue">
+              Common questions from buyers and investors about our services
+            </p>
+          </div>
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((faq, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="border border-gray-200 rounded-xl px-6 shadow-sm"
+              >
+                <AccordionTrigger className="text-left font-semibold text-rich-black hover:text-primary-orange py-5">
+                  {faq.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-blue leading-relaxed pb-5">
+                  {faq.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <div className="text-center mt-10">
+            <Button
+              asChild
+              size="lg"
+              className="btn-premium text-white font-semibold hover-lift rounded-xl"
+            >
+              <Link href="/contact">Book a Consultation</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-slate-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -432,7 +561,7 @@ export default function Home() {
               size="lg"
               className="bg-orange-gradient text-white hover:shadow-xl transition-all duration-300 font-semibold"
             >
-              <Link href="/contact">Schedule Consultation</Link>
+              <Link href="/contact">Book a Consultation</Link>
             </Button>
             <Button
               asChild
@@ -440,7 +569,7 @@ export default function Home() {
               size="lg"
               className="border-white text-white hover:bg-white hover:text-slate-blue bg-white/10 backdrop-blur-sm"
             >
-              <Link href="/properties">Browse Properties</Link>
+              <Link href="/properties">View Properties</Link>
             </Button>
           </div>
         </div>
