@@ -38,7 +38,7 @@ export const WHATSAPP_MESSAGE =
 export const COMPANY_INFO = {
   name: "Safehold Properties",
   address:
-    "1b Lavina Close, Peninsula Gardens Estate, Sangotedo, Ajah, Lekki 101245, Lagos",
+    "CITADEL VIEWS ESTATE 1.0, Behind LBS by Tollywood Olokonla, Lekki Epe Express-Way, Lagos",
   phone: "+2347035539944",
   email: "safeholdproperties@gmail.com",
   socialMedia: {
